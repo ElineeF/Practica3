@@ -2,7 +2,7 @@ import express from 'express';
 import mustacheExpress from 'mustache-express';
 import bodyParser from 'body-parser';
 import { __dirname } from './dirname.js';
-import nuevaReceta from './crearElementoRouter.js';
+import nuevaReceta from './crearElementoService.js';
 
 const app = express();
 app.set('views', __dirname + '/views');
