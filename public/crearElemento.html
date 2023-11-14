@@ -115,15 +115,14 @@
                     <br>
                     <div class="mb-3 text">
                         <label for="dietRestrictions">Apto para Veganos/Vegetarianos</label>
-                        <select class="form-control" id="dietRestrictions">
-                            <option></option>
-                            <option>Veganos</option>
-                            <option>Vegetarianos</option>
+                        <select class="form-control" id="dietRestrictions" name="dietRestrictions"> <!-- MENU DESPLEGABLE-->
+                            <option value="null"></option>
+                            <option value="vegan">Veganos</option>
+                            <option value="vegetarian">Vegetarianos</option>
                         </select>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="celiac" />
-                        <input type="checkbox" class="form-check-input" id="celiac">
+                        <input type="checkbox" class="form-check-input" id="celiac" name="celiac"/>
                         <label class="form-check-label" for="celiac">Apto para Celiacos</label>
                     </div>
                     <br>
