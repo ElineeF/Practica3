@@ -3,6 +3,11 @@
     src: url(Fira/FiraSansCondensed-Medium.ttf);
 }
 
+@font-face {
+    font-family: firaFontBold;
+    src: url(Fira/FiraSansCondensed-Bold.ttf);
+}
+
 * {
     scroll-behavior: smooth;
     font-family: firaFont;
@@ -135,19 +140,21 @@
 
 
 .boldText{
-    font-weight: 700;
+    font-family: firaFontBold;
     color: #ECE6CF;
-    text-shadow: 0 0 6px black;
+    text-shadow: 0 0 6px rgb(80, 80, 80);
 }
 
 .Titulo{
+    font-family: firaFontBold;
     text-align: center;
     color: #ECE6CF;
     font-weight: 900;
     font-size: xx-large;
-    text-shadow: 0 0 6px rgb(57, 57, 57);
+    text-shadow: 0 0 6px rgb(80, 80, 80);
     padding-top: 7%;
 }
+
  /*Contenedor principal*/
 #contenedorPrincipal{
     position: relative;
@@ -167,6 +174,47 @@
     transition: 1s;
 }
 
+/*Botones*/
+.modify{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    margin-left: 1.4rem;
+    margin-right: 1.4rem;
+}
+
+.modify button{
+    background-color: #08455200;
+    border-radius: 50%;
+    border: none;
+}
+
+.modify button:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.05);
+    border-radius: 50%;
+    background-color:#1e62719d;
+}
+
+.left a>i, .right button>i{
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: #ECE6CF;
+}
+
+.right{
+    display: flex;
+    gap: 1.3rem;
+    position: relative;
+    justify-content: right;
+    padding-right: 3rem;
+}
+
+.left{
+    position: relative;
+    justify-content: left;
+    padding-left: 3rem
+}
+
 /*Contenedor de etiquetas*/
 
 #contenedorPrincipal .tag {
@@ -177,7 +225,7 @@
 
 .rounded-circle{
     width: 330px;
-    border: 10px solid #F29090;
+    border: 7px solid #f4a2a2e3;
 }
 
 
@@ -190,34 +238,38 @@
     height: 40px;
     display: inline-block;
     padding-top: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 2rem;
     text-align: center;
 }
 
 
 .tag{
-   border: 1px solid black;
-   padding: 5px;
-   border-radius: 10px;
-   margin:7px;
-   background-color: #F29090;
-
+    box-shadow: rgb(80, 80, 80);
+    padding: .6rem;
+    border-radius: 10px;
+    margin:8px;
+    background-color: #052229c6;
+    color: #e3e1d6;  
+    text-shadow:rgb(80, 80, 80);   
 }
 
 
 /*Contenedor secundario*/
-#contenedorSecundario{
-    padding: 3%;
-    padding-top: 60px;
+.contenedorSecundario{
+    position: relative;
+    padding: 3rem;
     color: #ECE6CF;
     text-align: justify;
     line-height: 2rem;
-    margin: 2%;
-
+    margin: 3rem;
+    background-color: #ece6cf3d;
+    border-radius: 1rem;
 }
 
 #tituloPreparacion, #tituloIngredientes{
-    color: #55B47D;
+    font-family: firaFontBold;
+    text-decoration: underline;
+    color:#052229;
 }
 
 /* FORMULARIO DE RESEÑA*/
@@ -253,16 +305,16 @@ textarea{
     
 }
 
-.EnviarButton{
-    background-color: #F29090;
-    box-shadow: 4px 2px 8px black;
+.publicar button{
+    background-color: #08455200;
+    border-radius: 50%;
+    border: none;
 }
 
-.EnviarButton:hover{
-  color: #ECE6CF;
-}
-.reviewLabel{
-    margin-top: 0px;
+.publicar button:hover, i:hover{
+    transition: all .3s ease-in-out;
+    transform: scale(1.05);
+    color: #f4a2a2e3;
 }
 
 textarea, #inputEmailAddress{
@@ -318,23 +370,4 @@ textarea, #inputEmailAddress{
     color: #F29090;
 }
 
-/*EndButtons*/
-#EndButtons{
-    padding-bottom: 30px;
-}
-
-#EndButtons button{
-    background-color: #F29090;
-    box-shadow: 4px 2px 8px black;
-    padding: 6px;
-}
-
-#EndButtons button:nth-child(3) a{
-    text-decoration: none;
-    color:black;
-  }
-
-#EndButtons button:nth-child(2),#EndButtons button:nth-child(3){
-  margin-left: 10px;
-}
 
