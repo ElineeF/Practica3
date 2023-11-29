@@ -348,7 +348,7 @@ hr.solid {
 }
 
 .publicar button:hover,
-i:hover {
+.publicar i:hover {
     transition: all .3s ease-in-out;
     transform: scale(1.05);
     color: #f4a2a2e3;
