@@ -8,9 +8,18 @@
     src: url(Fira/FiraSansCondensed-Bold.ttf);
 }
 
+@font-face {
+    font-family: firaFontLight;
+    src: url(Fira/FiraSansCondensed-Light.ttf);
+}
+
 * {
     scroll-behavior: smooth;
     font-family: firaFont;
+}
+
+html, body {
+    height: 100%;
 }
 
 /*NavBar*/
@@ -27,7 +36,7 @@
     content: '';
     position: absolute;
     z-index: -1;
-    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .logo img {
@@ -47,23 +56,25 @@
 .customCollapseMenu {
     justify-content: flex-end;
 }
-.customCollapseMenu ul{
+
+.customCollapseMenu ul {
     margin-right: 1px !important;
 }
 
-.customCollapseMenu li{
+.customCollapseMenu li {
     margin-right: 10px;
 }
 
-#buttonCollapse { 
+#buttonCollapse {
     background-color: #ECE6CF;
 }
 
-.headerElement{
+.headerElement {
     margin-top: .7rem;
 }
 
-.headerElement a, i{
+.headerElement a,
+i {
     color: #ECE6CF;
     text-decoration: none;
     font-size: 1.15rem;
@@ -71,24 +82,26 @@
     transition: .3s;
 }
 
-.headerElement a.active, i:hover{
+.headerElement a.active,
+i:hover {
     color: #55B47D;
 }
 
 #dropCustom {
-    background-color:#ECE6CF;
-    color:#ECE6CF;
+    background-color: #ECE6CF;
+    color: #ECE6CF;
 }
 
-#dropCustom a, hr {
-    color:#07353f;
+#dropCustom a,
+hr {
+    color: #07353f;
     text-decoration: none;
     font-weight: 500;
     transition: .3s;
 }
 
 #dropCustom a:hover {
-    color:#55B47D;
+    color: #55B47D;
     background-color: #ECE6CF;
 }
 
@@ -100,7 +113,7 @@
     transition: all .2s ease-in-out;
 }
 
-.buttonCrear a{
+.buttonCrear a {
     color: #ECE6CF;
     text-decoration: none;
     font-size: 1.15rem;
@@ -113,39 +126,26 @@
 .buttonCrear:hover {
     transform: scale(1.05);
 }
+
 /*Contenedor general*/
 
-.general {
+
+.general{
+    min-height: 100%;
     position: relative;
+    overflow: hidden;
     background-color: #084857;
     padding-top: 2rem;
     margin: 0 auto;
-    padding-bottom: 40px;
-
 }
 
-.general .container {
-    width: 90%;
-    height: 100%;
-    position: relative;
-    overflow: -moz-hidden-unscrollable;
-    background-color: #084857;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-    display: grid;
-    gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: minmax(250px, 288px);
-}
-
-
-.boldText{
+.boldText {
     font-family: firaFontBold;
     color: #ECE6CF;
     text-shadow: 0 0 6px rgb(80, 80, 80);
 }
 
-.Titulo{
+.Titulo {
     font-family: firaFontBold;
     text-align: center;
     color: #ECE6CF;
@@ -155,53 +155,54 @@
     padding-top: 7%;
 }
 
- /*Contenedor principal*/
-#contenedorPrincipal{
+/*Contenedor principal*/
+#contenedorPrincipal {
     position: relative;
     margin: 3%;
 }
 
-.logoImg{
-    display:block;
-    margin:auto;
+.logoImg {
+    display: block;
+    margin: auto;
     margin-top: 4%;
     margin-bottom: 40px;
     transition: 1s;
 }
 
-.logoImg:hover{
+.logoImg:hover {
     transform: translateY(-10px);
     transition: 1s;
 }
 
 /*Botones*/
-.modify{
+.modify {
     display: grid;
     grid-template-columns: 2fr 2fr;
     margin-left: 1.4rem;
     margin-right: 1.4rem;
 }
 
-.modify button{
+.modify button {
     background-color: #08455200;
     border-radius: 50%;
     border: none;
 }
 
-.modify button:hover{
+.modify button:hover {
     transition: all .3s ease-in-out;
     transform: scale(1.05);
     border-radius: 50%;
-    background-color:#1e62719d;
+    background-color: #1e62719d;
 }
 
-.left a>i, .right button>i{
+.left a>i,
+.right button>i {
     font-size: 1.3rem;
     text-decoration: none;
     color: #ECE6CF;
 }
 
-.right{
+.right {
     display: flex;
     gap: 1.3rem;
     position: relative;
@@ -209,7 +210,7 @@
     padding-right: 3rem;
 }
 
-.left{
+.left {
     position: relative;
     justify-content: left;
     padding-left: 3rem
@@ -223,14 +224,14 @@
     margin-top: 60px;
 }
 
-.rounded-circle{
+.rounded-circle {
     width: 330px;
     border: 7px solid #f4a2a2e3;
 }
 
 
-.ContenedorTag{
-    position:absolute;
+.ContenedorTag {
+    position: absolute;
     left: 0;
     right: 0;
     margin: auto;
@@ -243,19 +244,19 @@
 }
 
 
-.tag{
+.tag {
     box-shadow: rgb(80, 80, 80);
     padding: .6rem;
     border-radius: 10px;
-    margin:8px;
+    margin: 8px;
     background-color: #052229c6;
-    color: #e3e1d6;  
-    text-shadow:rgb(80, 80, 80);   
+    color: #e3e1d6;
+    text-shadow: rgb(80, 80, 80);
 }
 
 
 /*Contenedor secundario*/
-.contenedorSecundario{
+.contenedorSecundario {
     position: relative;
     padding: 3rem;
     color: #ECE6CF;
@@ -266,108 +267,174 @@
     border-radius: 1rem;
 }
 
-#tituloPreparacion, #tituloIngredientes{
+#tituloPreparacion,
+#tituloIngredientes {
     font-family: firaFontBold;
     text-decoration: underline;
-    color:#052229;
+    color: #052229;
 }
 
 /* FORMULARIO DE RESEÑA*/
 
-.formClass{
-    padding: 2%;
+/*grid*/
+.formClass {
+    position: relative;
+    margin: 3rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 35px;
 }
 
-.formClass input{
-    margin:1%;
-
+.item1 {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 10px;
+    grid-row-gap: 18px;
+    margin-top: 2rem;
 }
 
-.reviewLabel{
-    vertical-align: top;
+/*items inside each cell*/
+/*cell "item1"*/
+.nameInput{
+    display: flex;
+    justify-content: space-between;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
 }
 
-textarea{
-    margin:50%
-}
-.emailinput{
-    display: inline;
-    width: 60%;
-    margin-top: 1%;
-}
-#inputEmailAddress{
-    margin-left: 14px;
+.review{
+    display: flex;
+    flex-wrap: wrap;
+    grid-column-start: 1;
+    grid-row-start: 2;
 }
 
-.ContainerForm1{
-    display:flex;
-    height: 60px;
-    
+
+#inputName , .review textarea{
+    border: none;
+    background-color: #ECE6CF;
+    color: #084552;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.publicar button{
+.publicar{
+    display: flex;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    align-items: flex-end;
+}
+
+.publicar button {
     background-color: #08455200;
     border-radius: 50%;
     border: none;
 }
 
-.publicar button:hover, i:hover{
+.publicar button:hover,
+i:hover {
     transition: all .3s ease-in-out;
     transform: scale(1.05);
     color: #f4a2a2e3;
 }
 
-textarea, #inputEmailAddress{
-    border: 2px solid black;
-    background-color: #ECE6CF;
-    color: #084552;
-    font-family: cursive;
-    font-weight: 600;
-}
-
-
-#Puntuacion{
-    margin-top: 12px;
-}
-
-/*RATING*/
 .rate {
     float: left;
     padding: 0 10px;
     display: flex;
     flex-direction: row-reverse;
     min-width: 100px;
-    
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
 }
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
 }
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
 }
-.rate:not(:checked) > label:before {
+
+.rate:not(:checked)>label:before {
     content: '★ ';
 }
-.rate > input:checked ~ label {
-    color: #F29090;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #F29090;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
+
+.rate>input:checked~label {
     color: #F29090;
 }
 
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #F29090;
+}
 
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #F29090;
+}
+
+/*cell "item2" = subitems*/
+.item2 {
+    display: flex;
+    flex-direction: column-reverse;
+    min-width: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: scroll;
+    padding: 1rem;
+}
+
+.subitems{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 90%;
+    min-height: 80%;
+    border-radius: 15px;
+    background-color: #ece6cfe3;
+    padding: 10px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    white-space: pre-line;
+    filter: drop-shadow(1px 7px 25px 4px rgba(5,34,41,0.18));
+}
+
+.subitems img{
+    border-radius: 50%;
+    max-width: 20%;
+    max-height: 20%;
+}
+
+#userReview{
+    font-family: firaFontLight;
+}
+
+#userName{
+    font-size: larger;
+    font-style: italic;
+    text-align: center;
+}
+
+#userName span{
+    font-size: large;
+    color: #F29090;
+}
