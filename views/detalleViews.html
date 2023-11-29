@@ -2,7 +2,7 @@
 <html>
   
 <head>
-    <title>Crema de zanahorias y naranja</title>
+    <title>{{rcpName}}</title>
     <meta charset="utf-8">
     <link rel="icon" type="image/x-icon" href="/Imagenes/logoNegro.ico">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
@@ -65,11 +65,41 @@
       <h1 class="Titulo display-1">{{rcpName}}</h1>
 
       <div id="contenedorPrincipal">
-        <img src="{{image}}" alt="Crema de zanahorias y naranja" class="rounded-circle logoImg"/> <!--Con comillas o sin comillas en el src??-->
+        <img src="{{image}}" alt="Imagen principal" class="rounded-circle logoImg"/>
         <div class="ContenedorTag">
-          <div class="tag sg">Apto para Celiacos</div> <!--Agregar checks en Public/crearElemento-->
-          <div class="tag sn">Lactosa</div>
-          <div class="tag sl">Vegano</div>
+          {{#celiac}}
+            <div class="tag sg">Apto para Celiacos</div> <!--Agregar checks en Public/crearElemento-->
+          {{/celiac}}
+          
+          {{#lactose}}
+            <div class="tag sn">Lactosa</div>
+          {{/lactose}}
+          
+          <!--{{#(dietRestrictions ===)}}--> <!-- ver ejemplo beatles para otro servidor-->
+            <div class="tag sl">Vegano</div>
+            <div class="tag v">Vegetariano</div>
+
+
+          {{#nuts}}
+            <div class="tag n">Nueces</div>
+          {{/nuts}}
+
+          {{#fish}}
+            <div class="tag p">Pescado</div>
+          {{/fish}}
+
+          {{#egg}}
+            <div class="tag h">Huevo</div>
+          {{/egg}}
+
+          {{#seafish}}
+            <div class="tag m">Mariscos</div>
+          {{/seafish}}
+
+
+          {{#soya}}
+            <div class="tag s">Soja</div>
+          {{/soya}}
         </div>
       </div>
       <br>
@@ -80,7 +110,7 @@
             <ul>
               <li>600gr de zanahorias peladas</li>
               <li>1 puerro picado</li>
-              <li>1 patata pelada y cortada en dados</li>
+              <li>1 patata pelada y cortada en dados</li>  <!--FOR con li que separe los enter-->
               <li>Zumo de 1/2 naranja</li>
               <li>1 naranja lavada y partida en trozos(con piel)</li>
               <li>1 brik pequeño de nata líquida</li>
@@ -90,10 +120,7 @@
         </div>
         <div id=" ContenedorPreparacion">
           <h2 id="tituloPreparacion">PREPARACIÓN</h2>
-          En una cazuela sofreír el puerro durante 10 minutos.
-          Luego añadir las zanahorias, las patatas y la naranja y sofreír unos minutos más.
-          Añadir el zumo de naranja y agua hasta cubrirlo todo y dejar cocer hasta que las zanahorias estén hechas.
-          Retirar los trozos de naranja y pasar por la batidora, añadir la nata, la sal y la pimienta.
+          {{rcpDescription}}
         </div>
       </div>
 
