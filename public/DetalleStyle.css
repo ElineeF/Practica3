@@ -275,16 +275,19 @@ hr {
 }
 
 /* FORMULARIO DE RESEÑA*/
+hr.solid {
+    border-top: 3px solid #bbb;
+}
 
 /*grid*/
 .formClass {
-    position: relative;
     margin: 3rem;
     padding: 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 35px;
+    max-height: 1rem;
 }
 
 .item1 {
@@ -298,6 +301,11 @@ hr {
 
 /*items inside each cell*/
 /*cell "item1"*/
+#reviewTitle{
+    text-shadow: #052229bd;
+    color: #f4a2a2e3;
+}
+
 .nameInput{
     display: flex;
     justify-content: space-between;
@@ -391,13 +399,14 @@ i:hover {
 
 /*cell "item2" = subitems*/
 .item2 {
-    display: flex;
-    flex-direction: column-reverse;
-    min-width: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
+    display: grid;
+    position: relative;
+    grid-auto-rows: minmax(400px, 400px);
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
     overflow-y: scroll;
+    overflow-x: hidden;
     padding: 1rem;
 }
 
@@ -405,8 +414,9 @@ i:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    max-width: 90%;
-    min-height: 80%;
+    margin-bottom: 0;
+    max-height: 70%;
+    max-width: 60%;
     border-radius: 15px;
     background-color: #ece6cfe3;
     padding: 10px;
@@ -415,13 +425,13 @@ i:hover {
     align-items: center;
     text-align: justify;
     white-space: pre-line;
-    filter: drop-shadow(1px 7px 25px 4px rgba(5,34,41,0.18));
+    box-shadow:1px 7px 25px 4px rgba(5,34,41,0.18);
 }
 
 .subitems img{
     border-radius: 50%;
-    max-width: 20%;
-    max-height: 20%;
+    max-width: 10%;
+    max-height: 10%;
 }
 
 #userReview{
