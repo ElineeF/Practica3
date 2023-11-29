@@ -18,10 +18,6 @@
     font-family: firaFont;
 }
 
-html, body {
-    height: 100%;
-}
-
 /*NavBar*/
 .navegacion {
     background-color: #084552;
@@ -279,6 +275,13 @@ hr.solid {
     border-top: 3px solid #bbb;
 }
 
+#reviewZone{
+    display: flex;
+    justify-content: center;
+    min-height: 25rem;
+    margin-bottom: 2rem;
+}
+
 /*grid*/
 .formClass {
     margin: 3rem;
@@ -287,12 +290,12 @@ hr.solid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 35px;
-    max-height: 1rem;
+    max-height: 2rem;
 }
 
 .item1 {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 504px 39px;
     grid-template-rows: repeat(2, auto);
     grid-column-gap: 10px;
     grid-row-gap: 18px;
@@ -302,8 +305,9 @@ hr.solid {
 /*items inside each cell*/
 /*cell "item1"*/
 #reviewTitle{
-    text-shadow: #052229bd;
+    text-shadow: #052229;
     color: #f4a2a2e3;
+    font-family: firaFontBold;
 }
 
 .nameInput{
@@ -408,6 +412,21 @@ i:hover {
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 1rem;
+}
+
+.item2::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1d0;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
 }
 
 .subitems{
