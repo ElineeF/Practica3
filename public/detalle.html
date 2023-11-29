@@ -53,7 +53,6 @@
   </nav>
 
 
-
   <div class="general">
     <div class="modify">
       <div class="left">
@@ -103,49 +102,69 @@
     </div>
 
     <div class="formClass">
+      <h2 id="reviewTitle">¿QUÉ TE HA PARECIDO ESTA RECETA?</h2><br>
 
       <div class="item1">
+        <div class="nameInput">
+          <input type="text" id="inputName" placeholder="Nombre">
 
-        <div class="emailInput">
-          <label for="inputEmailAddress" class="emailLabel">Email</label>
-          <input type="email" id="inputEmailAddress">
+          <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+          </div>
         </div>
 
         <div class="review">
-          <label for="userReview" class="reviewLabel">Reseña</label>
-          <textarea id="userReview" rows="5" cols="65%"></textarea>
+          <textarea id="inputReview" rows="5" cols="65%" placeholder="Escribe tu reseña aquí..."></textarea>
         </div>
 
         <div class="publicar">
           <button><i class="bi bi-send-fill"></i></button>
         </div>
-
       </div>
 
       <div class="item2">
-        <div>Puntuación</div>
+        <div class="subitems">
+          <img src="/Img/profilePic.png">
+          <p id="userName">Alejandra
+            <span>★ ★ ★ ★</span>
+          </p>
+          <p id="userReview">lore ipsum, lore ipsum, Lorem ipsum dolor </p>
+        </div>
 
-        <div class="rate">
-          <input type="radio" id="star5" name="rate" value="5" />
-          <label for="star5" title="text">5 stars</label>
-          <input type="radio" id="star4" name="rate" value="4" />
-          <label for="star4" title="text">4 stars</label>
-          <input type="radio" id="star3" name="rate" value="3" />
-          <label for="star3" title="text">3 stars</label>
-          <input type="radio" id="star2" name="rate" value="2" />
-          <label for="star2" title="text">2 stars</label>
-          <input type="radio" id="star1" name="rate" value="1" />
-          <label for="star1" title="text">1 star</label>
+        <div class="subitems">
+          <img src="/Img/profilePic.png">
+          <p id="userName">Beatriz
+            <span>★ ★</span>
+          </p>
+          <p id="userReview">lore ipsum, lore ipsum, Lorem ipsum dolor </p>
+        </div>
+
+        <div class="subitems">
+          <img src="/Img/profilePic.png">
+          <p id="userName">Luis
+            <span>★ ★ ★ ★ ★</span>
+          </p>
+          <p id="userReview">lore ipsum, lore ipsum, Lorem ipsum dolor </p>
         </div>
 
       </div>
 
     </div><br>
 
-    <div class="subitems">
+    
 
-    </div>
+
   </div>
+
 </body>
 
 </html>
