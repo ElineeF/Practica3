@@ -4,7 +4,7 @@
 <head>
   <title>{{rcpName}}</title>
   <meta charset="utf-8"/>
-  <link rel="icon" type="image/x-icon" href="/Imagenes/logoNegro.ico">
+  <link rel="icon" type="image/x-icon" href="/public/Imagenes/logoNegro.ico">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
   <link rel="stylesheet" href="public\DetalleStyle.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
   <nav class="navbar navbar-expand-lg navegacion" id="shadow">
     <div class="container-fluid">
 
-      <a class="navbar-brand logo" href="index.html"><img src="/Imagenes/TastyGramAlargado.png"></a>
+      <a class="navbar-brand logo" href="index.html"><img src="/public/Imagenes/TastyGramAlargado.png"></a>
 
       <button id="buttonCollapse" class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -43,7 +43,7 @@
           </li>
           <li class="nav-item buttonCrear">
             <button class="btn btn-success" type="button">
-              <a href="crearElemento.html"><i class="bi bi-plus"></i>Crear Receta</a>
+              <a href="/public/crearElemento.html"><i class="bi bi-plus"></i>Crear Receta</a>
             </button>
           </li>
         </ul>
@@ -61,17 +61,18 @@
 
       <div class="right">
         <button><i class="bi bi-brush"></i></button>
-        <button><i class="bi bi-trash3"></i></button>
+        <form action="/detalle/{{id}}/delete" method="post">
+          <button type="submit"><i class="bi bi-trash3"></i></button>
+        </form>
       </div>
     </div>
 
     <h1 class="Titulo display-1">{{rcpName}}</h1>
 
     <div id="contenedorPrincipal">
-      <img src={{image}}
-        alt="Imagen principal" class="rounded-circle logoImg" />
+      <img src="{{rcpImage}}" alt="Imagen principal" class="rounded-circle logoImg" />
       <div class="ContenedorTag">
-        {{#celiac}}
+          {{#celiac}}
             <div class="tag sg">Apto para Celiacos</div> <!--Agregar checks en Public/crearElemento-->
           {{/celiac}}
           
@@ -79,10 +80,9 @@
             <div class="tag sn">Lactosa</div>
           {{/lactose}}
           
-          <!--{{#(dietRestrictions ===)}}--> <!-- ver ejemplo beatles para otro servidor-->
-            <div class="tag sl">Vegano</div>
-            <div class="tag v">Vegetariano</div>
-
+          {{#showDietRestriction}}
+            <div class="tag v">{{dietRestrictions}}</div>
+          {{/showDietRestriction}}
 
           {{#nuts}}
             <div class="tag n">Nueces</div>
@@ -100,7 +100,6 @@
             <div class="tag m">Mariscos</div>
           {{/seafish}}
 
-
           {{#soya}}
             <div class="tag s">Soja</div>
           {{/soya}}
@@ -112,16 +111,12 @@
       <div id="ContenedorIngredientes">
         <h2 id="tituloIngredientes">INGREDIENTES</h2> <!--FOR con li que separe los enter-->
         <ul>
-          <li>600gr de zanahorias peladas</li>
-          <li>1 puerro picado</li>
-          <li>1 patata pelada y cortada en dados</li>
-          <li>Zumo de 1/2 naranja</li>
-          <li>1 naranja lavada y partida en trozos(con piel)</li>
-          <li>1 brik pequeño de nata líquida</li>
-          <li>Aceite de oliva</li>
-          <li>Sal y pimienta</li>
+          {{#rcpIngredients}}
+            <li>{{.}}</li>
+          {{/rcpIngredients}}
         </ul>
       </div>
+
       <div id=" ContenedorPreparacion">
         <h2 id="tituloPreparacion">PREPARACIÓN</h2>
         {{rcpDescription}}
