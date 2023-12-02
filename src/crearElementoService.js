@@ -2,7 +2,7 @@ const recipes = [
   {
     id: 1,
     rcpName: 'Crema de Zanahorias y Naranja',
-    rcpImage: 'https://megustacomersano.com/wp-content/uploads/2022/01/crema-de-calabaza-con-naranja-y-jengibre-1.jpgimagen1.jpg',
+    rcpImage: 'https://megustacomersano.com/wp-content/uploads/2022/01/crema-de-calabaza-con-naranja-y-jengibre-1-1000x1000.jpg',
     rcpIngredients: ['600gr de zanahorias peladas', '1 puerro picado', '1 patata pelada y cortada en dados', 'Zumo de 1/2 naranja', '1 naranja lavada y partida en trozos(con piel)', '1 brik pequeño de nata líquida', 'Aceite de oliva', 'Sal y pimienta'],
     rcpDescription: 'En una cazuela sofreír el puerro durante 10 minutos.\nLuego añadir las zanahorias, las patatas y la naranja y sofreír unos minutos más.\nAñadir el zumo de naranja y agua hasta cubrirlo todo y dejar cocer hasta que las zanahorias estén hechas.\nRetirar los trozos de naranja y pasar por la batidora, añadir la nata, la sal y la pimienta.',
     lactose: true,
