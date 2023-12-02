@@ -75,9 +75,14 @@
             <div class="tag sn">Lactosa</div>
           {{/lactose}}
           
-          <!--{{#(dietRestrictions ===)}}--> <!-- ver ejemplo beatles para otro servidor-->
-            <div class="tag sl">Vegano</div>
+          
+          {{#vegan}}  
+          <div class="tag sl">Vegano</div>
+          {{/vegan}}
+
+          {{#vegetarian}}
             <div class="tag v">Vegetariano</div>
+          {{/vegetarian}}
 
 
           {{#nuts}}
