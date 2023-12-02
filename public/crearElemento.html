@@ -4,7 +4,7 @@
 <head>
     <title>TastyGram</title>
     <link rel="icon" type="image/x-icon" href="Imagenes/logoNegro.ico">
-    <meta charset="utf-8">
+    <meta charset="UTF-8"/>
     <link rel="stylesheet" href="crearElementoStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -60,27 +60,27 @@
             </div>
             <br>
             <div>
-                <form action="nuevo" method="post">
+                <form action="/crearElemento" method="post">
                     <div class="mb-3 text">
-                        <label for ="image" class="custom-file-label" id="rcpImage">Selecciona una Imagen</label>
+                        <label for ="rcpImage" class="custom-file-label" id="rcpImage">Selecciona una Imagen</label>
                         <br>
-                        <input type="url" class="form-control" for="rcpImage" lang="es"  name="image"/> <!--NAME image-->
+                        <input type="url" class="form-control" for="rcpImage" lang="es"  name="image" required/> <!--NAME image-->
                     </div>
                     <br>
                     <div class="mb-3 text">
                         <label for="rcpName" class="form-label">Nombre de la Receta</label>
-                        <input type="text" class="form-control" id="rcpName" aria-describedby="recipeName"  name="rcpName"/> <!--NAME rcpName-->
+                        <input type="text" class="form-control" id="rcpName" aria-describedby="recipeName"  name="rcpName" required/> <!--NAME rcpName-->
                         
                     </div>
                     <br>
                     <div class="mb-3 text">
                         <label for="rcpIngredients" class="form-label">Ingredientes</label>
-                        <textarea class="form-control" id="rcpName" name="rcpIngredients" aria-describedby="recipeName" cols="40" rows="5"></textarea> <!--NAME rcpIngredients-->
+                        <textarea class="form-control" id="rcpName" name="rcpIngredients" aria-describedby="recipeName" cols="40" rows="5" required></textarea> <!--NAME rcpIngredients-->
                     </div>
                     <br>
                     <div class="mb-3 text">
                         <label for="rcpDescription" class="form-label">Descripción</label>
-                        <textarea class="form-control" id="rcpName" name="rcpDescription" aria-describedby="recipeName" cols="40" rows="5"></textarea> <!--NAME rcpIngredients-->
+                        <textarea class="form-control" id="rcpName" name="rcpDescription" aria-describedby="recipeName" cols="40" rows="5" required></textarea> <!--NAME rcpIngredients-->
                     </div>
                     <div class="allergens">
                         <p>Contiene Alimentos Alérgenos</p>
@@ -137,7 +137,7 @@
                                 Cancelar
                             </button></a>
                         <a href="#">
-                            <button type="submit" class="btn btn-success">
+                            <button type="submit" class="btn btn-success" value="Save">
                                 Guardar
                             </button></a>
                     </div>
