@@ -11,7 +11,7 @@ const recipes = [
     seafood: false,
     fish: false,
     celiac: false,
-    dietRestrictions: 'vegetarian',
+    dietRestrictions: 'Vegetariano',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const recipes = [
     seafood: false,
     fish: false,
     celiac: true,
-    dietRestrictions: 'null',
+    dietRestrictions: null,
   }
 ];
 
@@ -55,7 +55,7 @@ export function createRecipe(recipeData) {
 export function getRecipeById(recipeId) {
   // Lógica para obtener una receta por su ID
   const recipe = recipes.find(recipe => recipe.id === Number(recipeId));
-  console.log('receta obtenida: ', recipe);
+  // console.log('receta obtenida: ', recipe);
 
   if (recipe) {
     recipe.showDietRestriction = recipe.dietRestrictions !== null;

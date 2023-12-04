@@ -25,7 +25,7 @@ router.get('/detalle/:id', (req, res) => {
     if (!recipe) {
       res.status(404).send('Receta no encontrada');
     } else {
-      res.render('detalle', { recipe });
+      res.render('detalle', recipe);
     }
 });
 

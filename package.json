@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
-    "watch": "nodemon -e js,html,css src/app.js"
+    "watch": "nodemon -e js,html,css src/app.js",
+    "dev": "nodemon --exec npm start"
   },
   "dependencies": {
     "express": "^4.18.2",
