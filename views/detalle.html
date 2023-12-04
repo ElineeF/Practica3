@@ -52,7 +52,6 @@
     </div>
   </nav>
 
-
   <div class="general">
     <div class="modify">
       <div class="left">
@@ -61,19 +60,20 @@
 
       <div class="right">
         <button><i class="bi bi-brush"></i></button>
-        <form action="/detalle/{{id}}/delete" method="post">
+        <form action="/detalle/:id/delete" method="post">
           <button type="submit"><i class="bi bi-trash3"></i></button>
         </form>
       </div>
     </div>
 
+    
     <h1 class="Titulo display-1">{{rcpName}}</h1>
-
+    
     <div id="contenedorPrincipal">
       <img src="{{rcpImage}}" alt="Imagen principal" class="rounded-circle logoImg" />
       <div class="ContenedorTag">
           {{#celiac}}
-            <div class="tag sg">Apto para Celiacos</div> <!--Agregar checks en Public/crearElemento-->
+            <div class="tag sg">Apto para Celiacos</div> 
           {{/celiac}}
           
           {{#lactose}}
@@ -109,7 +109,7 @@
     <br>
     <div class="contenedorSecundario">
       <div id="ContenedorIngredientes">
-        <h2 id="tituloIngredientes">INGREDIENTES</h2> <!--FOR con li que separe los enter-->
+        <h2 id="tituloIngredientes">INGREDIENTES</h2> 
         <ul>
           {{#rcpIngredients}}
             <li>{{.}}</li>
@@ -121,6 +121,7 @@
         <h2 id="tituloPreparacion">PREPARACIÓN</h2>
         {{rcpDescription}}
       </div>
+      
     </div>
 
     <br>

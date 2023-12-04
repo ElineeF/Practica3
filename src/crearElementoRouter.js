@@ -20,7 +20,7 @@ router.post('/crearElemento', (req, res) => {
 });
 
 router.get('/detalle/:id', (req, res) => {
-    // Lógica para renderizar la página de detalle de una receta por su ID
+    // renderizar la página de detalle de una receta por su ID
     const recipe = crearElementoService.getRecipeById(req.params.id);
     if (!recipe) {
       res.status(404).send('Receta no encontrada');
