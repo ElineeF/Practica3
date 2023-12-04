@@ -70,7 +70,9 @@
     <h1 class="Titulo display-1">{{rcpName}}</h1>
     
     <div id="contenedorPrincipal">
-      <img src="{{rcpImage}}" alt="Imagen principal" class="rounded-circle logoImg" />
+      <div id="ImgContainer">
+        <img src="{{rcpImage}}" alt="Imagen principal" class="rounded-circle logoImg" />
+      </div>
       <div class="ContenedorTag">
           {{#celiac}}
             <div class="tag sg">Apto para Celiacos</div> 

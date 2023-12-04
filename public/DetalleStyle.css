@@ -157,6 +157,12 @@ hr {
     margin: 3%;
 }
 
+#ImgContainer img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
 .logoImg {
     display: block;
     margin: auto;
