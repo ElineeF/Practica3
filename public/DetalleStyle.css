@@ -407,6 +407,10 @@ hr.solid {
     color: #F29090;
 }
 
+.star-filled {
+    color: #F29090;  /*Añadido*/
+  }
+
 /*cell "item2" = subitems*/
 .item2 {
     display: grid;
@@ -434,6 +438,8 @@ hr.solid {
     border: 6px solid transparent;
     background-clip: content-box;
 }
+
+.item2{}
 
 .subitems{
     display: flex;
@@ -473,3 +479,5 @@ hr.solid {
     font-size: large;
     color: #F29090;
 }
+
+

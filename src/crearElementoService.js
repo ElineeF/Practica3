@@ -25,9 +25,11 @@ const recipes = [
     seafood: false,
     fish: false,
     celiac: true,
-    dietRestrictions: null,
+    dietRestrictions: "null",
   }
 ];
+
+
 
 let nextId = recipes.length + 1;
 
@@ -58,7 +60,7 @@ export function getRecipeById(recipeId) {
   // console.log('receta obtenida: ', recipe);
 
   if (recipe) {
-    recipe.showDietRestriction = recipe.dietRestrictions !== null;
+    recipe.showDietRestriction = recipe.dietRestrictions !== "null"; 
   }
 
   return recipe;
@@ -77,3 +79,5 @@ export function deleteRecipeById(recipeId) {
     }
     return false; // receta no encontrada
 }
+
+
