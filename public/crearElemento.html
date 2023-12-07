@@ -60,88 +60,93 @@
             </div>
             <br>
             <div>
-                <form action="/crearElemento" method="post">
-                    <div class="mb-3 text">
-                        <label for ="rcpImage" class="custom-file-label" id="rcpImage">Selecciona una Imagen</label>
+                {{#recipe}}
+                    <form action = "/actualizar/{{id}}" method = "post">
+                {{/recipe}} 
+                {{^recipe}}   
+                    <form action="/crearElemento" method="post">
+                {{/recipe}}        
+                        <div class="mb-3 text">
+                            <label for ="rcpImage" class="custom-file-label" id="rcpImage">Selecciona una Imagen</label>
+                            <br>
+                            <input type="url" class="form-control" for="rcpImage" lang="es"  name="rcpImage" required/> <!--NAME image-->
+                        </div>
                         <br>
-                        <input type="url" class="form-control" for="rcpImage" lang="es"  name="rcpImage" required/> <!--NAME image-->
-                    </div>
-                    <br>
-                    <div class="mb-3 text">
-                        <label for="rcpName" class="form-label">Nombre de la Receta</label>
-                        <input type="text" class="form-control" id="rcpName" aria-describedby="recipeName"  name="rcpName" required/> <!--NAME rcpName-->
-                        
-                    </div>
-                    <br>
-                    <div class="mb-3 text">
-                        <label for="rcpIngredients" class="form-label">Ingredientes</label>
-                        <textarea class="form-control" id="rcpName" name="rcpIngredients" aria-describedby="recipeName" cols="40" rows="5" required></textarea> <!--NAME rcpIngredients-->
-                    </div>
-                    <br>
-                    <div class="mb-3 text">
-                        <label for="rcpDescription" class="form-label">Descripción</label>
-                        <textarea class="form-control" id="rcpName" name="rcpDescription" aria-describedby="recipeName" cols="40" rows="5" required></textarea> <!--NAME rcpIngredients-->
-                    </div>
-                    <div class="allergens">
-                        <p>Contiene Alimentos Alérgenos</p>
-                        <ul>
-                            <li class="checkInList">
-                                <input type="checkbox" class="form-check-input" id="lactose" name="lactose"/> <!--NAME LACTOSE-->
-                                <label class="form-check-label" for="lactose">Lactosa</label>
-                            </li>
+                        <div class="mb-3 text">
+                            <label for="rcpName" class="form-label">Nombre de la Receta</label>
+                            <input type="text" class="form-control" id="rcpName" aria-describedby="recipeName"  name="rcpName" required/> <!--NAME rcpName-->
+                            
+                        </div>
+                        <br>
+                        <div class="mb-3 text">
+                            <label for="rcpIngredients" class="form-label">Ingredientes</label>
+                            <textarea class="form-control" id="rcpName" name="rcpIngredients" aria-describedby="recipeName" cols="40" rows="5" required></textarea> <!--NAME rcpIngredients-->
+                        </div>
+                        <br>
+                        <div class="mb-3 text">
+                            <label for="rcpDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="rcpName" name="rcpDescription" aria-describedby="recipeName" cols="40" rows="5" required></textarea> <!--NAME rcpIngredients-->
+                        </div>
+                        <div class="allergens">
+                            <p>Contiene Alimentos Alérgenos</p>
+                            <ul>
+                                <li class="checkInList">
+                                    <input type="checkbox" class="form-check-input" id="lactose" name="lactose"/> <!--NAME LACTOSE-->
+                                    <label class="form-check-label" for="lactose">Lactosa</label>
+                                </li>
 
-                            <li class="checkInList">
-                                <input type="checkbox" class="form-check-input" id="eggs" name="eggs"/> <!--NAME EGGS-->
-                                <label class="form-check-label" for="eggs">Huevo</label>
-                            </li>
+                                <li class="checkInList">
+                                    <input type="checkbox" class="form-check-input" id="eggs" name="eggs"/> <!--NAME EGGS-->
+                                    <label class="form-check-label" for="eggs">Huevo</label>
+                                </li>
 
-                            <li class="checkInList">
-                                <input type="checkbox" class="form-check-input" id="nuts" name="nuts" /> <!--NAME NUTS--> 
-                                <label class="form-check-label" for="nuts">Frutos Secos</label>
-                            </li>
+                                <li class="checkInList">
+                                    <input type="checkbox" class="form-check-input" id="nuts" name="nuts" /> <!--NAME NUTS--> 
+                                    <label class="form-check-label" for="nuts">Frutos Secos</label>
+                                </li>
 
-                            <li class="checkInList">
-                                <input type="checkbox" class="form-check-input" id="soya"  name="soya"/> <!--NAME SOYA-->
-                                <label class="form-check-label" for="soya">Soja</label>
-                            </li>
+                                <li class="checkInList">
+                                    <input type="checkbox" class="form-check-input" id="soya"  name="soya"/> <!--NAME SOYA-->
+                                    <label class="form-check-label" for="soya">Soja</label>
+                                </li>
 
-                            <li class="checkInList">
-                                <input type="checkbox" class="form-check-input" id="seafood" name="seafood"/> <!--NAME SEAFOOD-->
-                                <label class="form-check-label" for="seafood">Mariscos</label>
-                            </li>
+                                <li class="checkInList">
+                                    <input type="checkbox" class="form-check-input" id="seafood" name="seafood"/> <!--NAME SEAFOOD-->
+                                    <label class="form-check-label" for="seafood">Mariscos</label>
+                                </li>
 
-                            <li class="checkInList">
-                                <input type="checkbox" class="form-check-input" id="fish" name="fish"/> <!--NAME FISH-->
-                                <label class="form-check-label" for="fish">Pescados</label>
-                            </li>
-                        </ul>
-                    </div>
-                    <br>
-                    <div class="mb-3 text">
-                        <label for="dietRestrictions">Apto para Veganos/Vegetarianos</label>
-                        <select class="form-control" id="dietRestrictions" name="dietRestrictions"> <!-- MENU DESPLEGABLE-->
-                            <option value="null"></option>
-                            <option value="vegan">Veganos</option>
-                            <option value="vegetarian">Vegetarianos</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="celiac" name="celiac"/>
-                        <label class="form-check-label" for="celiac">Apto para Celiacos</label>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="buttons">
-                        <a href="index.html">
-                            <button type="button" class="btn btn-secondary">
-                                Cancelar
-                            </button></a>
-                        <a href="#">
-                            <button type="submit" class="btn btn-success" value="Save">
-                                Guardar
-                            </button></a>
-                    </div>
-                </form>
+                                <li class="checkInList">
+                                    <input type="checkbox" class="form-check-input" id="fish" name="fish"/> <!--NAME FISH-->
+                                    <label class="form-check-label" for="fish">Pescados</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="mb-3 text">
+                            <label for="dietRestrictions">Apto para Veganos/Vegetarianos</label>
+                            <select class="form-control" id="dietRestrictions" name="dietRestrictions"> <!-- MENU DESPLEGABLE-->
+                                <option value="null"></option>
+                                <option value="vegan">Veganos</option>
+                                <option value="vegetarian">Vegetarianos</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="celiac" name="celiac"/>
+                            <label class="form-check-label" for="celiac">Apto para Celiacos</label>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="buttons">
+                            <a href="index.html">
+                                <button type="button" class="btn btn-secondary">
+                                    Cancelar
+                                </button></a>
+                            <a href="#">
+                                <button type="submit" class="btn btn-success" value="Save">
+                                    Guardar
+                                </button></a>
+                        </div>
+                    </form>
             </div>
 </body>
 

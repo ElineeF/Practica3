@@ -29,15 +29,36 @@ router.get('/detalle/:id', (req, res) => {
     }
 });
 
+//borrar
+
 router.post('/detalle/:id/delete', (req, res) => {
-    const recipeId = req.params.id;
-    const deleted = crearElementoService.deleteRecipeById(recipeId);
-  
-    if (!deleted) {
-      res.status(404).send('Receta no encontrada');
-    } else {
-      res.redirect('/');
-    }
-  });
+  const recipeId = req.params.id;
+  try {
+    const deletedRecipe = crearElementoService.deleteRecipeById(recipeId);
+    res.redirect('/');
+  } catch (error) {
+    console.error('Error al eliminar la receta:', error.message);
+    res.status(404).send('Receta no encontrada');
+  }
+});
+
+
+//editar
+router.get('/editar/:id', (req, res) => {
+  const recipe = crearElementoService.getRecipeById(req.params.id);
+  if(!recipe){
+    res.status(404).send('Receta no encontrada');
+  } else {
+    res.render('crearElemento', recipe);
+  }
+})
+
+router.post('/actualizar/:id', (req, res) => {
+  const targetRecipeId = req.params.id;
+  const newData = req.body;
+  const updatingData = crearElementoService.updateRecipeById(targetRecipeId, newData);
+
+  res.redirect(`/detalle/${targetRecipeId}`);
+})
 
 export default router;

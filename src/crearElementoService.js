@@ -29,7 +29,7 @@ const recipes = [
   }
 ];
 
-let nextId = recipes.length + 1;
+let nextId = 1;
 
 export function createRecipe(recipeData) {
   // Lógica para validar y guardar la nueva receta
@@ -76,4 +76,14 @@ export function deleteRecipeById(recipeId) {
       return true; // receta eliminada 
     }
     return false; // receta no encontrada
+}
+
+export function updateRecipeById(targetRecipeId, newData) {
+  const existingRecipe = getRecipeById(targetRecipeId);
+  //Actualizamos con operador de propagación (...) -> sobreescribe info
+  const updatedRecipe = { ...existingRecipe, ...newData };
+  //Guardamos receta actualizada en el mismo lugar del array
+  recipes[targetRecipeId - 1] = updatedRecipe;
+
+  return updatedRecipe;
 }
