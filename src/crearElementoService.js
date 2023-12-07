@@ -1,6 +1,6 @@
 const recipes = [
   {
-    id: 1,
+    id: 0,
     rcpName: 'Crema de Zanahorias y Naranja',
     rcpImage: 'https://megustacomersano.com/wp-content/uploads/2022/01/crema-de-calabaza-con-naranja-y-jengibre-1-1000x1000.jpg',
     rcpIngredients: ['600gr de zanahorias peladas', '1 puerro picado', '1 patata pelada y cortada en dados', 'Zumo de 1/2 naranja', '1 naranja lavada y partida en trozos(con piel)', '1 brik pequeño de nata líquida', 'Aceite de oliva', 'Sal y pimienta'],
@@ -14,7 +14,7 @@ const recipes = [
     dietRestrictions: 'Vegetariano',
   },
   {
-    id: 2,
+    id: 1,
     rcpName: 'Pizza Hawaiana',
     rcpImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1981&q=80',
     rcpIngredients: ['1 masa para pizza', 'Tomate frito', '4 rodajas de piña', 'Queso rallado', 'Orégano (opcional)', '4 ó 5 lonchas de jamón York'],
@@ -80,4 +80,21 @@ export function deleteRecipeById(recipeId) {
     return false; // receta no encontrada
 }
 
+export function updateRecipeById(targetRecipeId, newData) {
+  const existingRecipeIndex = recipes.findIndex(recipe => recipe.id === Number(targetRecipeId));
 
+  if (existingRecipeIndex !== -1) {
+    // Clonamos la receta para no modificar la original directamente
+    const existingRecipe = { ...recipes[existingRecipeIndex] };
+    
+    // Actualizamos con los nuevos datos
+    const updatedRecipe = { ...existingRecipe, ...newData };
+    
+    // Actualizamos la receta 
+    recipes[existingRecipeIndex] = updatedRecipe;
+
+    return updatedRecipe;
+  }
+
+  return null; // Devolvemos null si la receta no existe
+}
