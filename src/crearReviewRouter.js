@@ -6,7 +6,7 @@ import * as crearReviewService from './crearReviewService.js';
 const router = express.Router();
 
 
-router.get('/reviews', (req, res) => {
+router.get('/', (req, res) => {
     // Lógica para renderizar la página detalle con todas las review
     console.log('Antes de renderizar');
     res.render('detalle', { reviews: crearReviewService.getAllReviews() });
@@ -46,7 +46,7 @@ router.post('/detalle/:id/delete', (req, res) => {
     if (!deleted) {
       res.status(404).send('Review no encontrado');
     } else {
-      res.redirect('/');
+      res.redirect('/detalle/:id');
     }
   });
 

@@ -1,12 +1,12 @@
 import express from 'express';
 
-const router = express.Router();
+const mainRouter = express.Router();
 
-router.get('/enlace/:nenlace', (req, res) => {
+mainRouter.get('/enlace/:nenlace', (req, res) => {
 
     res.render('enlace', {
         nenlace: req.params.nenlace,
     });
 });
 
-export default router;
+export default mainRouter;

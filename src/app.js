@@ -6,6 +6,7 @@ import crearElementoRouter from './crearElementoRouter.js';
 import crearReviewRouter from './crearReviewRouter.js';
 
 
+
 const app = express();
 
 //Motor de plantillas
@@ -24,6 +25,6 @@ app.use(express.static(__dirname + '/../public'));
 
 //rutas
 app.use('/', crearElementoRouter);
-app.use('/', crearReviewRouter);
+app.use('/reviews', crearReviewRouter);
 
 app.listen(3000, () => console.log('Listening on port 3000!'))

@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     console.log('Se ha renderizado la lista de recetas en index');
   });
   
-router.get('/crearElemento', (req, res) => {
+  router.get('/crearElemento', (req, res) => {
     // Renderizar la página de creación de recetas
     res.render('crearElemento');
 });
