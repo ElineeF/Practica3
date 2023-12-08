@@ -57,7 +57,7 @@ router.get('/editar/:id', (req, res) => {
   }
 })
 
-router.post('/editar/:id', (req, res) => {
+/*router.post('/editar/:id', (req, res) => {
   const targetRecipeId = req.params.id;
   const newData = req.body;
   const updatedRecipe = crearElementoService.updateRecipeById(targetRecipeId, newData);
@@ -67,6 +67,13 @@ router.post('/editar/:id', (req, res) => {
   } else {
     res.status(404).send('Receta no encontrada');
   }
+})*/
+
+router.post('/editar/:id', (req, res) => {
+  const targetRecipeId = req.params.id;
+  crearElementoService.updateRecipe(targetRecipeId, req.body);
+
+  res.redirect(`/detalle/${targetRecipeId}`);
 })
 
 export default router;

@@ -84,17 +84,27 @@ export function updateRecipeById(targetRecipeId, newData) {
   const existingRecipeIndex = recipes.findIndex(recipe => recipe.id === Number(targetRecipeId));
 
   if (existingRecipeIndex !== -1) {
-    // Clonamos la receta para no modificar la original directamente
-    const existingRecipe = { ...recipes[existingRecipeIndex] };
-    
     // Actualizamos con los nuevos datos
-    const updatedRecipe = { ...existingRecipe, ...newData };
     
-    // Actualizamos la receta 
-    recipes[existingRecipeIndex] = updatedRecipe;
-
-    return updatedRecipe;
+    recipe[existingRecipeIndex] = { ...recipes[existingRecipeIndex], ...newData };
   }
 
   return null; // Devolvemos null si la receta no existe
+}
+
+export function updateRecipe(targetRecipeId, newData){
+  const existingRecipeIndex = recipes.findIndex(recipe => recipe.id === Number(targetRecipeId));
+  recipes[existingRecipeIndex] = {
+    rcpName: newData.rcpName,
+    rcpImage: newData.rcpImage,
+    rcpIngredients: newData.rcpIngredients.split('\n').map(line => line.trim()),
+    rcpDescription: newData.rcpDescription,
+    lactose: newData.lactose === 'on',
+    nuts: newData.nuts === 'on',
+    soya: newData.soya === 'on',
+    seafood: newData.seafood === 'on',
+    fish: newData.fish === 'on',
+    celiac: newData.celiac === 'on',
+    dietRestrictions: newData.dietRestrictions,
+  };
 }
