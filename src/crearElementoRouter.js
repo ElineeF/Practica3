@@ -8,8 +8,10 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     // Lógica para renderizar la página principal con la lista de recetas
+    console.log('Antes de renderizar en index las recetas');
     res.render('index', { recipes: crearElementoService.getAllRecipes() });
-});
+    console.log('Se ha renderizado la lista de recetas en index');
+  });
   
 router.get('/crearElemento', (req, res) => {
     // Renderizar la página de creación de recetas

@@ -1,14 +1,13 @@
 const reviews = [
   {
-    id:1,
+    id:0,
     userName: 'Maria Zambrano',
     rate: 3,
-    userReview: "Perfecta, gracias.",
+    userReview: 'Perfecta, gracias.',
     profilePic: './Img/profilePic.png',
-    
   },
   {
-    id:2,
+    id:1,
     userName: 'Sonia Freites',
     rate: 5,
     userReview: 'Deliciosa, fácil de preparar!',
@@ -35,7 +34,10 @@ export function createReview(reviewData){
 
 export function getReviewById(reviewId){
     const review = reviews.find(review => review.id === Number(reviewId));
-
+    if(review){
+        console.log('Receta encontrada', review);
+    }
+    else
     return review;
 }
 

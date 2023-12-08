@@ -5,10 +5,17 @@ import { __dirname } from './dirname.js';
 import crearElementoRouter from './crearElementoRouter.js';
 import crearReviewRouter from './crearReviewRouter.js';
 
+
 const app = express();
+
+//Motor de plantillas
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
+
+//Carpeta views
 app.set('views', __dirname + '/../views');
+
+//Middleware
 
 app.use(bodyParser.urlencoded({extended: true}));
 
