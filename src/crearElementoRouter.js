@@ -20,6 +20,7 @@ router.get('/crearElemento', (req, res) => {
   
 router.post('/crearElemento', (req, res) => {
   const newRecipe = crearElementoService.createRecipe(req.body);
+  console.log(req.body);
   res.redirect(`/detalle/${newRecipe.id}`);
 });
 
@@ -38,7 +39,7 @@ router.get('/detalle/:id', (req, res) => {
 router.post('/detalle/:id/delete', (req, res) => {
   const recipeId = req.params.id;
   try {
-    const deletedRecipe = crearElementoService.deleteRecipeById(recipeId);
+    crearElementoService.deleteRecipeById(recipeId);
     res.redirect('/');
   } catch (error) {
     console.error('Error al eliminar la receta:', error.message);
@@ -71,7 +72,7 @@ router.get('/editar/:id', (req, res) => {
 
 router.post('/editar/:id', (req, res) => {
   const targetRecipeId = req.params.id;
-  crearElementoService.updateRecipe(targetRecipeId, req.body);
+  crearElementoService.updateRecipeById(targetRecipeId, req.body);
 
   res.redirect(`/detalle/${targetRecipeId}`);
 })

@@ -1,5 +1,5 @@
-const recipes = [
-  {
+const recipes = {
+  0:{
     id: 0,
     rcpName: 'Crema de Zanahorias y Naranja',
     rcpImage: 'https://megustacomersano.com/wp-content/uploads/2022/01/crema-de-calabaza-con-naranja-y-jengibre-1-1000x1000.jpg',
@@ -13,7 +13,7 @@ const recipes = [
     celiac: false,
     dietRestrictions: 'Vegetariano',
   },
-  {
+  1:{
     id: 1,
     rcpName: 'Pizza Hawaiana',
     rcpImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1981&q=80',
@@ -27,16 +27,17 @@ const recipes = [
     celiac: true,
     dietRestrictions: "null",
   }
-];
+};
 
 
 
-let nextId = recipes.length + 1;
+let nextId = Object.keys(recipes).length;
 
 export function createRecipe(recipeData) {
+  const newId = nextId + 1;
   // Lógica para validar y guardar la nueva receta
   const newRecipe = {
-    id: nextId++,
+    id: newId,
     rcpName: recipeData.rcpName,
     rcpImage: recipeData.rcpImage,
     rcpIngredients: recipeData.rcpIngredients.split('\n').map(line => line.trim()),
@@ -50,61 +51,23 @@ export function createRecipe(recipeData) {
     dietRestrictions: recipeData.dietRestrictions,
   };
 
-  recipes.push(newRecipe);
+  recipes[newId] = newRecipe;
   return newRecipe;
 }
 
 export function getRecipeById(recipeId) {
-  // Lógica para obtener una receta por su ID
-  const recipe = recipes.find(recipe => recipe.id === Number(recipeId));
-  // console.log('receta obtenida: ', recipe);
-
-  if (recipe) {
-    recipe.showDietRestriction = recipe.dietRestrictions !== "null";
-  }
-
-  return recipe;
+  return recipes[recipeId];
 }
 
 
 export function getAllRecipes() {
-    return recipes;
+    return Object.values(recipes);
 }
 
 export function deleteRecipeById(recipeId) {
-    const index = recipes.findIndex(recipe => recipe.id === Number(recipeId));
-    if (index !== -1) {
-      recipes.splice(index, 1);
-      return true; // receta eliminada 
-    }
-    return false; // receta no encontrada
+    delete recipes[recipeId];
 }
 
 export function updateRecipeById(targetRecipeId, newData) {
-  const existingRecipeIndex = recipes.findIndex(recipe => recipe.id === Number(targetRecipeId));
-
-  if (existingRecipeIndex !== -1) {
-    // Actualizamos con los nuevos datos
-    
-    recipe[existingRecipeIndex] = { ...recipes[existingRecipeIndex], ...newData };
-  }
-
-  return null; // Devolvemos null si la receta no existe
-}
-
-export function updateRecipe(targetRecipeId, newData){
-  const existingRecipeIndex = recipes.findIndex(recipe => recipe.id === Number(targetRecipeId));
-  recipes[existingRecipeIndex] = {
-    rcpName: newData.rcpName,
-    rcpImage: newData.rcpImage,
-    rcpIngredients: newData.rcpIngredients.split('\n').map(line => line.trim()),
-    rcpDescription: newData.rcpDescription,
-    lactose: newData.lactose === 'on',
-    nuts: newData.nuts === 'on',
-    soya: newData.soya === 'on',
-    seafood: newData.seafood === 'on',
-    fish: newData.fish === 'on',
-    celiac: newData.celiac === 'on',
-    dietRestrictions: newData.dietRestrictions,
-  };
+  recipes[targetRecipeId] = newData;
 }
