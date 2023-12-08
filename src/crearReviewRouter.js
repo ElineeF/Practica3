@@ -6,7 +6,7 @@ import * as crearReviewService from './crearReviewService.js';
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
+router.get('/reviews', (req, res) => {
     // Lógica para renderizar la página detalle con todas las review
     console.log('Antes de renderizar');
     res.render('detalle', { reviews: crearReviewService.getAllReviews() });
