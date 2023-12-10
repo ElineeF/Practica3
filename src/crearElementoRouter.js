@@ -8,10 +8,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     // Lógica para renderizar la página principal con la lista de recetas
-    console.log('Antes de renderizar en index las recetas');
     res.render('index', { recipes: crearElementoService.getAllRecipes() });
    // console.log(crearElementoService.getRecipeById(0));
-    console.log('Se ha renderizado la lista de recetas en index');
   });
   
   router.get('/crearElemento', (req, res) => {
@@ -20,8 +18,12 @@ router.get('/', (req, res) => {
 });
   
 router.post('/crearElemento', (req, res) => {
-  const newRecipe = crearElementoService.createRecipe(req.body);
-  //console.log(req.body);
+  let newRecipe = crearElementoService.createRecipe(req.body);
+  let recipes = crearElementoService.getAllRecipes;
+  recipes = crearElementoService.addRecipe(newRecipe);
+  console.log('ID NUEVO DE RECETA', recipes.length);
+
+  console.log(newRecipe);
   res.redirect(`/detalle/${newRecipe.id}`);
 });
 

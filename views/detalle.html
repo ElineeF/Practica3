@@ -133,7 +133,7 @@
 
     <div id="reviewZone">
       <div class="formClass">
-        <form id="reviewForm" action="/detalle/{{id}}" method="post"> <!--antes /crearReview-->
+        <form id="reviewForm" action="/detalle/{{id}}" method="post">
           <h1 id="reviewTitle">¿QUÉ TE HA PARECIDO ESTA RECETA?</h1><br>
 
           <div class="item1">
@@ -170,11 +170,10 @@
     <div class="subitems">
          <img src="../Img/profilePic.png" alt="{{userName}}">
          <p id="userName">{{userName}}</p>
-              <div class="star-rating">
-                ★★★★★
+              <div class="star-rating"> PARRRR
+              
               </div>
-            </p>
-            <p id="userReview">{{userReview}} </p> 
+            <div id="userReview">{{userReview}} </div> 
     </div>
    {{/reviews}}
    {{^reviews}}

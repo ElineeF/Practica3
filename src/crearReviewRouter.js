@@ -40,32 +40,29 @@ router.get('/detalle/:id', (req, res) => {
 // });
 
 router.post('/detalle/:id', (req, res) => { 
-  console.log('Datos recibidos');
   const newReview = crearReviewService.createReview(req.body);
+  let recipe = crearReviewService.getRecipeById(req.params.id);
+  let reviews;
 
+if (typeof recipe === "undefined") {
+  console.log('Receta NO encontrada');
+}
+else{
+  
 
-  let receta = crearReviewService.getRecipeById(req.params.id);
-  console.log('Traza 1, receta: ' , receta.id, receta.rcpName);
-
-  if (!receta) {
-    res.status(404).send('Receta no encontrada');
-  } else {
-    let reviewId = crearReviewService.getId(newReview);
-    console.log('Traza 2, review: ' , receta.reviews[reviewId]);
-
-    receta.reviews = receta.reviews || {};
-    receta.reviews[reviewId] = newReview;
-    console.log('Traza 3, review mod: ' , receta.reviews[reviewId]);
-    receta.reviews[reviewId] = newReview;
-    console.log('Traza 4, luego de guardar en array de array: ' , receta.reviews[reviewId]);
+   console.log('Receta existe');
+    reviews = crearReviewService.getReviews(recipe);
+    reviews = crearReviewService.addReview(newReview, reviews);
+    recipe.reviews = reviews;
     res.redirect(`/detalle/${req.params.id}`); 
-    console.log('Detalles', receta.reviews[reviewId]);
-  }  
+    console.log('Receta', recipe.rcpName);
+    console.log('Receta Review', recipe.reviews);
+ }
 });
 
 
 router.get('/detalle/:id', (req, res) => {
-    const review = crearReviewService.getReviewById(req.params.id);
+    //const review = crearReviewService.getReviewById(req.params.id);   ///VER ESTO
     console.log('Se ha buscado el objeto');
     if (!review) { //esta vacio
       res.status(404).send('Review no encontrado');
@@ -86,5 +83,22 @@ router.post('/detalle/:id/delete', (req, res) => {
       res.redirect('/detalle/:id');
     }
   });
+
+  router.get('/detalle/:id', (req, res) => {
+    // Supongamos que tu servicio tiene una función getRecipeById
+    const receta = crearReviewService.getRecipeById(req.params.id);
+  
+    // Asegúrate de tener la función getStarRating en tu servicio
+    const starRating = crearReviewService.getStarRating(receta.rate);
+  
+    // Pasar los datos a la plantilla
+    const context = {
+      receta: receta,
+      starRating: starRating,
+    };
+  
+    res.render('tu_plantilla', context);
+  });
+  
 
 export default router;

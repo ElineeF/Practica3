@@ -411,6 +411,11 @@ hr.solid {
     color: #F29090;  /*Añadido*/
   }
 
+  .star-rating{
+
+     height: 30px;
+  }
+
 /*cell "item2" = subitems*/
 .item2 {
     display: grid;
@@ -425,7 +430,7 @@ hr.solid {
 }
 
 .item2::-webkit-scrollbar {
-    width: 20px;
+    width: 150px;
 }
 
 ::-webkit-scrollbar-track {
@@ -439,7 +444,7 @@ hr.solid {
     background-clip: content-box;
 }
 
-.item2{}
+
 
 .subitems{
     display: flex;
@@ -461,12 +466,13 @@ hr.solid {
 
 .subitems img{
     border-radius: 50%;
-    max-width: 10%;
-    max-height: 10%;
+    max-width: 20%;
+    max-height: 20%;
 }
 
 #userReview{
     font-family: firaFontLight;
+    
 }
 
 #userName{
