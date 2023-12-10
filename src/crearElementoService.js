@@ -1,5 +1,14 @@
-const recipes = {
-  0:{
+let reviews = [];
+
+let review1 ={
+  userName: 'Maria Jose',
+  rate:5,
+  userReview: 'Me ha encantado'
+}
+
+let recipes = [];
+
+  let recipe1 = {
     id: 0,
     rcpName: 'Crema de Zanahorias y Naranja',
     rcpImage: 'https://megustacomersano.com/wp-content/uploads/2022/01/crema-de-calabaza-con-naranja-y-jengibre-1-1000x1000.jpg',
@@ -12,8 +21,10 @@ const recipes = {
     fish: false,
     celiac: false,
     dietRestrictions: 'Vegetariano',
+    reviews:setReview(0,review1,reviews)
+    
   },
-  1:{
+  recipe2 = {
     id: 1,
     rcpName: 'Pizza Hawaiana',
     rcpImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1981&q=80',
@@ -26,18 +37,22 @@ const recipes = {
     fish: false,
     celiac: true,
     dietRestrictions: "null",
+    reviews:{}
   }
-};
+  
+  let nextId = 1;
+  recipes[nextId-1] = recipe1;
+  recipes[nextId] = recipe2;
 
 
 
-let nextId = Object.keys(recipes).length;
+//let nextId = Object.keys(recipes).length;
+ nextId = recipes.length + 1;
 
 export function createRecipe(recipeData) {
-  const newId = nextId + 1;
   // Lógica para validar y guardar la nueva receta
-  const newRecipe = {
-    id: newId,
+  let newRecipe = {
+    id: nextId,
     rcpName: recipeData.rcpName,
     rcpImage: recipeData.rcpImage,
     rcpIngredients: recipeData.rcpIngredients.split('\n').map(line => line.trim()),
@@ -49,25 +64,81 @@ export function createRecipe(recipeData) {
     fish: recipeData.fish === 'on',
     celiac: recipeData.celiac === 'on',
     dietRestrictions: recipeData.dietRestrictions,
+    reviews: {}
   };
 
-  recipes[newId] = newRecipe;
-  return newRecipe;
+  recipes.set(newRecipe.id, newRecipe);
+  return newRecipe[newRecipe.Id];
 }
 
 export function getRecipeById(recipeId) {
   return recipes[recipeId];
 }
 
+export function getRecipeWithReviewsById(recipeId) {
+  const recipe = recipes[recipeId];
+  const reviews = recipe ? recipe.reviews : [];
+  return { recipe, reviews };
+}
 
 export function getAllRecipes() {
-    return Object.values(recipes);
+    return recipes;
 }
 
 export function deleteRecipeById(recipeId) {
-    delete recipes[recipeId];
+  let deleted = delete array[recipeId];
+  if(!deleted){
+    console.log('No se ha podido borrar');
+  }
 }
 
 export function updateRecipeById(targetRecipeId, newData) {
   recipes[targetRecipeId] = newData;
+}
+
+
+let nextReview = reviews.length + 1;
+
+
+export function createReview(reviewData){
+   const newReview = {
+    id: nextReview++,
+    userName: reviewData.userName,
+    rate: reviewData.rate,
+    userReview: reviewData.userReview,
+    profilePic: './Img/profilePic.png',
+   };
+
+   reviews[newReview.id]= newReview;
+   return newReview;
+}
+
+export function setReview(reviewId, updatedReview, reviews) {
+  reviews[reviewId] = updatedReview;
+  return reviews;
+}
+
+export function getId(review){
+  return review.id;
+}
+
+
+export function getReviewById(reviewId){
+    let review = reviews[reviewId];
+    if(review){
+        console.log('Receta encontrada', review);
+    }
+    else{ console.log('No existe la receta');}
+}
+
+export function getAllReviews(){
+    console.log('Todas las reviews a continuacion: ', reviews);
+    return reviews;
+}
+
+export function deleteReviewById(reviewId){
+    let deleted = delete reviews[reviewId];
+    if(!deleted){ç
+      console.log('Review no borrado');
+    }
 }

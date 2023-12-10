@@ -1,35 +1,72 @@
 import express from 'express';
-import * as crearReviewService from './crearReviewService.js';
-
-
+import * as crearReviewService from './crearElementoService.js';
 
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
+router.get('/detalle/:id', (req, res) => {
     // Lógica para renderizar la página detalle con todas las review
-    console.log('Antes de renderizar');
-    res.render('detalle', { reviews: crearReviewService.getAllReviews() });
-    console.log('Se ha renderizado la lista de objetos');
+    res.render('detalle', { reviews: Array.from(crearReviewService.getAllReviews().values()) });
+
 });
 
 
   
-router.get('/crearReview', (req, res) => { 
+router.get('/detalle/:id', (req, res) => { 
     // Renderizar la página de creación de reviews
-    res.render('crearReview');
+    res.render('detalle');
+
 });
   
-router.post('/crearReview', (req, res) => { 
+// router.post('/detalle/:id', (req, res) => { 
+//   console.log('Datos recibidos');
+//   const newReview = crearReviewService.createReview(req.body);
+//   console.log('valor de nueva receta', newReview);
+//   console.log('Resena creada', newReview);
+
+//   let receta = crearReviewService.getRecipeById(req.params.id);
+
+//   if (!receta) {
+//     res.status(404).send('Receta no encontrada');
+//   }
+//   else{
+//     console.log('Esta es la receta: ', receta);
+
+//     let reviewId = crearReviewService.getId(newReview);
+//     //console.log('Este es el id: ',reviewId);
+//     receta.reviews[reviewId] = newReview;
+//     res.redirect(`/detalle/${req.params.id}`); 
+//   }  
+// });
+
+router.post('/detalle/:id', (req, res) => { 
   console.log('Datos recibidos');
   const newReview = crearReviewService.createReview(req.body);
-  console.log('Resena creada', newReview);
-  res.redirect(`/detalle/${newReview.id}`);
+
+
+  let receta = crearReviewService.getRecipeById(req.params.id);
+  console.log('Traza 1, receta: ' , receta.id, receta.rcpName);
+
+  if (!receta) {
+    res.status(404).send('Receta no encontrada');
+  } else {
+    let reviewId = crearReviewService.getId(newReview);
+    console.log('Traza 2, review: ' , receta.reviews[reviewId]);
+
+    receta.reviews = receta.reviews || {};
+    receta.reviews[reviewId] = newReview;
+    console.log('Traza 3, review mod: ' , receta.reviews[reviewId]);
+    receta.reviews[reviewId] = newReview;
+    console.log('Traza 4, luego de guardar en array de array: ' , receta.reviews[reviewId]);
+    res.redirect(`/detalle/${req.params.id}`); 
+    console.log('Detalles', receta.reviews[reviewId]);
+  }  
 });
+
 
 router.get('/detalle/:id', (req, res) => {
     const review = crearReviewService.getReviewById(req.params.id);
-    console.log('Se ha buscado el objeto'); 
+    console.log('Se ha buscado el objeto');
     if (!review) { //esta vacio
       res.status(404).send('Review no encontrado');
       console.log('El objeto no existe')

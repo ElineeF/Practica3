@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     // Lógica para renderizar la página principal con la lista de recetas
     console.log('Antes de renderizar en index las recetas');
     res.render('index', { recipes: crearElementoService.getAllRecipes() });
+   // console.log(crearElementoService.getRecipeById(0));
     console.log('Se ha renderizado la lista de recetas en index');
   });
   
@@ -20,13 +21,13 @@ router.get('/', (req, res) => {
   
 router.post('/crearElemento', (req, res) => {
   const newRecipe = crearElementoService.createRecipe(req.body);
-  console.log(req.body);
+  //console.log(req.body);
   res.redirect(`/detalle/${newRecipe.id}`);
 });
 
 router.get('/detalle/:id', (req, res) => {
     // renderizar la página de detalle de una receta por su ID
-    const recipe = crearElementoService.getRecipeById(req.params.id);
+    let recipe = crearElementoService.getRecipeById(req.params.id);
     if (!recipe) {
       res.status(404).send('Receta no encontrada');
     } else {
