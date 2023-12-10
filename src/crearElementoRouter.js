@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
   
 router.post('/crearElemento', (req, res) => {
   const newData = req.body;
-  const newRecipe = crearElementoService.createRecipe(req.body);
   
   if (!newData.rcpName || !newData.rcpIngredients || !newData.rcpDescription) {
     if(!newData.rcpName){
@@ -43,6 +42,8 @@ router.post('/crearElemento', (req, res) => {
       });
     }
   }
+
+  const newRecipe = crearElementoService.createRecipe(newData);
   res.redirect(`/detalle/${newRecipe.id}`);
 });
 
@@ -83,7 +84,6 @@ router.get('/editar/:id', (req, res) => {
 router.post('/editar/:id', (req, res) => {
   const targetRecipeId = req.params.id;
   const newData = req.body;
-  crearElementoService.updateRecipeById(targetRecipeId, newData);
 
   if (!newData.rcpName || !newData.rcpIngredients || !newData.rcpDescription) {
     if(!newData.rcpName){
@@ -106,6 +106,7 @@ router.post('/editar/:id', (req, res) => {
     }
   }
 
+  crearElementoService.updateRecipeById(targetRecipeId, newData);
   res.redirect(`/detalle/${targetRecipeId}`);
 })
 

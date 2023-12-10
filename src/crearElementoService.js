@@ -6,9 +6,9 @@ let review1 ={
   userReview: 'Me ha encantado'
 }
 
-let recipes = [];
+let recipes = {
 
-  let recipe1 = {
+  0:{
     id: 0,
     rcpName: 'Crema de Zanahorias y Naranja',
     rcpImage: 'https://megustacomersano.com/wp-content/uploads/2022/01/crema-de-calabaza-con-naranja-y-jengibre-1-1000x1000.jpg',
@@ -24,7 +24,7 @@ let recipes = [];
     reviews:setReview(0,review1,reviews)
     
   },
-  recipe2 = {
+  1:{
     id: 1,
     rcpName: 'Pizza Hawaiana',
     rcpImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1981&q=80',
@@ -39,20 +39,16 @@ let recipes = [];
     dietRestrictions: "null",
     reviews:{}
   }
-  
-  let nextId = 1;
-  recipes[nextId-1] = recipe1;
-  recipes[nextId] = recipe2;
+}
 
 
-
-//let nextId = Object.keys(recipes).length;
- nextId = recipes.length + 1;
+let nextId = Object.keys(recipes).length;
 
 export function createRecipe(recipeData) {
   // Lógica para validar y guardar la nueva receta
+  const newId = nextId +1;
   let newRecipe = {
-    id: nextId,
+    id: newId,
     rcpName: recipeData.rcpName,
     rcpImage: recipeData.rcpImage,
     rcpIngredients: recipeData.rcpIngredients.split('\n').map(line => line.trim()),
@@ -67,26 +63,20 @@ export function createRecipe(recipeData) {
     reviews: {}
   };
 
-  recipes.set(newRecipe.id, newRecipe);
-  return newRecipe[newRecipe.Id];
+  recipes[newId] = newRecipe;
+  return newRecipe;
 }
 
 export function getRecipeById(recipeId) {
   return recipes[recipeId];
 }
 
-export function getRecipeWithReviewsById(recipeId) {
-  const recipe = recipes[recipeId];
-  const reviews = recipe ? recipe.reviews : [];
-  return { recipe, reviews };
-}
-
 export function getAllRecipes() {
-    return recipes;
+    return Object.values(recipes);
 }
 
 export function deleteRecipeById(recipeId) {
-  let deleted = delete array[recipeId];
+  let deleted = delete recipes[recipeId];
   if(!deleted){
     console.log('No se ha podido borrar');
   }
@@ -96,6 +86,8 @@ export function updateRecipeById(targetRecipeId, newData) {
   recipes[targetRecipeId] = newData;
 }
 
+
+//REVIEWS
 
 let nextReview = reviews.length + 1;
 
@@ -111,6 +103,12 @@ export function createReview(reviewData){
 
    reviews[newReview.id]= newReview;
    return newReview;
+}
+
+export function getRecipeWithReviewsById(recipeId) {
+  const recipe = recipes[recipeId];
+  const reviews = recipe ? recipe.reviews : [];
+  return { recipe, reviews };
 }
 
 export function setReview(reviewId, updatedReview, reviews) {

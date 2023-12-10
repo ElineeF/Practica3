@@ -67,7 +67,7 @@
             <div>
                 {{#error}}
                 <div class="alert alert-danger" role="alert">
-                    {{error}}
+                    <p>{{error}}</p>
                 </div>
                 {{/error}}
                 
@@ -158,10 +158,18 @@
                     <br>
                     <br>
                     <div class="buttons">
-                        <a href="index.html">
+                        {{#recipe}}
+                        <a href="/detalle/{{id}}">
                             <button type="button" class="btn btn-secondary">
                                 Cancelar
                             </button></a>
+                        {{/recipe}}
+                        {{^recipe}}
+                        <a href="/">
+                            <button type="button" class="btn btn-secondary">
+                                Cancelar
+                            </button></a>
+                        {{/recipe}}    
                         <a href="">
                             <button type="submit" class="btn btn-success" value="Save">
                                 Guardar
