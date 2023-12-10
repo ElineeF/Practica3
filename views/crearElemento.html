@@ -65,6 +65,12 @@
             </div>
             <br>
             <div>
+                {{#error}}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {{/error}}
+                
                 {{#recipe}}
                 <form action="/editar/{{id}}" method="post">
                 {{/recipe}}
