@@ -54,6 +54,11 @@
         </div>
     </nav>
 
+    {{#error}}
+        <div class="alert alert-danger" role="alert">
+            <p>{{error}}</p>
+        </div>
+    {{/error}}
     <div class="container">
         <div id="MainGif">
             <img src="/Imagenes/FoodMain.gif" alt="Gif Promocional" />
@@ -64,13 +69,7 @@
                 <h1>¡CREA TU NUEVA RECETA!</h1>
             </div>
             <br>
-            <div>
-                {{#error}}
-                <div class="alert alert-danger" role="alert">
-                    <p>{{error}}</p>
-                </div>
-                {{/error}}
-                
+            <div>                
                 {{#recipe}}
                 <form action="/editar/{{id}}" method="post">
                 {{/recipe}}

@@ -225,3 +225,17 @@ body{
     font-weight: bold;
     font-family: firaFontLight;
 }
+
+/* Estilos para la alerta de error */
+.alert {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
