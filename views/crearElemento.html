@@ -54,6 +54,11 @@
         </div>
     </nav>
 
+    {{#error}}
+        <div class="alert alert-danger" role="alert">
+            <p>{{error}}</p>
+        </div>
+    {{/error}}
     <div class="container">
         <div id="MainGif">
             <img src="/Imagenes/FoodMain.gif" alt="Gif Promocional" />
@@ -64,7 +69,7 @@
                 <h1>¡CREA TU NUEVA RECETA!</h1>
             </div>
             <br>
-            <div>
+            <div>                
                 {{#recipe}}
                 <form action="/editar/{{id}}" method="post">
                 {{/recipe}}
@@ -152,10 +157,18 @@
                     <br>
                     <br>
                     <div class="buttons">
-                        <a href="index.html">
+                        {{#recipe}}
+                        <a href="/detalle/{{id}}">
                             <button type="button" class="btn btn-secondary">
                                 Cancelar
                             </button></a>
+                        {{/recipe}}
+                        {{^recipe}}
+                        <a href="/">
+                            <button type="button" class="btn btn-secondary">
+                                Cancelar
+                            </button></a>
+                        {{/recipe}}    
                         <a href="">
                             <button type="submit" class="btn btn-success" value="Save">
                                 Guardar

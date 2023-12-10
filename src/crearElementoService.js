@@ -134,8 +134,7 @@ let recipes = [];
 
 export function createRecipe(recipeData) {
   // Lógica para validar y guardar la nueva receta
-  console.log('ESTA ES EL LARGO',recipes.length)
-  nextId = recipes.length;
+;
   let newRecipe = {
     id: recipes.length,
     rcpName: recipeData.rcpName,
@@ -180,7 +179,6 @@ export function getAllRecipes() {
 
 export function deleteRecipeById(recipeId) {
   recipes.splice(recipeId,1);
-  return recipes;
 }
 
 export function updateRecipeById(targetRecipeId, newData) {

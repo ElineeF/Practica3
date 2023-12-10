@@ -61,22 +61,32 @@ router.get('/editar/:id', (req, res) => {
   }
 })
 
-/*router.post('/editar/:id', (req, res) => {
-  const targetRecipeId = req.params.id;
-  const newData = req.body;
-  const updatedRecipe = crearElementoService.updateRecipeById(targetRecipeId, newData);
-
-  if (updatedRecipe) {
-    res.redirect(`/detalle/${targetRecipeId}`);
-  } else {
-    res.status(404).send('Receta no encontrada');
-  }
-})*/
-
 router.post('/editar/:id', (req, res) => {
   const targetRecipeId = req.params.id;
-  crearElementoService.updateRecipeById(targetRecipeId, req.body);
+  const newData = req.body;
 
+  if (!newData.rcpName || !newData.rcpIngredients || !newData.rcpDescription) {
+    if(!newData.rcpName){
+      return res.status(400).render('crearElemento', {
+        error: 'El nombre no puede estar vacío. Por favor, completa el formulario.',
+        recipe: newData, 
+      });
+    }
+    if (!newData.rcpIngredients){
+      return res.status(400).render('crearElemento', {
+        error: 'Los ingredientes no pueden estar vacíos. Por favor, completa el formulario.',
+        recipe: newData, 
+      });
+    }
+    if (!newData.rcpDescription){
+      return res.status(400).render('crearElemento', {
+        error: 'La preparación de la receta no puede estar vacía. Por favor, completa el formulario.',
+        recipe: newData, 
+      });
+    }
+  }
+
+  crearElementoService.updateRecipeById(targetRecipeId, newData);
   res.redirect(`/detalle/${targetRecipeId}`);
 })
 
