@@ -138,19 +138,19 @@
 
           <div class="item1">
             <div class="nameInput">
-              <input type="text" id="inputName" placeholder="Nombre" name="userName">
+              <input type="text" id="inputName" placeholder="Nombre" name="userName" required>
 
               <div class="rate">
                 <input type="radio" id="star5" name="rate" value="5" />
-                <label for="star5" title="text">5 stars</label>
-                <input type="radio" id="star4" name="rate" value="4" />
-                <label for="star4" title="text">4 stars</label>
-                <input type="radio" id="star3" name="rate" value="3" />
-                <label for="star3" title="text">3 stars</label>
-                <input type="radio" id="star2" name="rate" value="2" />
-                <label for="star2" title="text">2 stars</label>
-                <input type="radio" id="star1" name="rate" value="1" />
-                <label for="star1" title="text">1 star</label>
+               <label for="star5" title="text">5 stars</label>
+               <input type="radio" id="star4" name="rate" value="4" />
+               <label for="star4" title="text">4 stars</label>
+               <input type="radio" id="star3" name="rate" value="3" />
+               <label for="star3" title="text">3 stars</label>
+               <input type="radio" id="star2" name="rate" value="2" />
+               <label for="star2" title="text">2 stars</label>
+               <input type="radio" id="star1" name="rate" value="1" />
+              <label for="star1" title="text">1 star</label>
               </div>
             </div>
 
@@ -179,21 +179,7 @@
    {{/reviews}}
    </div> 
    
-   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var labels = document.querySelectorAll('.rate label');
 
-      labels.forEach(function(label) {
-        label.addEventListener('click', function(event) {
-          // Prevenir el comportamiento por defecto del clic
-          event.preventDefault();
-
-          // Lógica para manejar la clasificación de estrellas
-          console.log('Calificación:', this.previousElementSibling.value);
-        });
-      });
-    });
-  </script>
 
 </body>
 
