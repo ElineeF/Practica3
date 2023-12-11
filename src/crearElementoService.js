@@ -160,6 +160,23 @@ export function updateRecipeById(targetRecipeId, newData) {
   recipes[targetRecipeId] = newData;
 }
 
+export function formValidate(){
+  var x = document.forms["myForm"]["rcpName"].value;
+  var y = document.forms["myForm"]["rcpIngredients"].value;
+  var z = document.forms["myForm"]["rcpDescription"].value;
+
+  if (x == ""){
+    alert("ERROR. El nombre de la receta no puede ser nulo.");
+  }
+  if (y == ""){
+    alert("ERROR. Los ingredientes de la receta no pueden ser nulos.");
+  }
+  if (z == ""){
+    alert("ERROR. La preparación de la receta no puede ser nula.");
+  }
+  return false;
+}
+
 
 //REVIEWS 
 

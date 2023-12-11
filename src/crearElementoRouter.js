@@ -81,19 +81,19 @@ router.post('/editar/:id', (req, res) => {
 
   if (!newData.rcpName || !newData.rcpIngredients || !newData.rcpDescription) {
     if(!newData.rcpName){
-      return res.status(400).render('crearElemento', {
+      return res.status(400).render('error', {
         error: 'El nombre no puede estar vacío. Por favor, completa el formulario.',
         recipe: newData, 
       });
     }
     if (!newData.rcpIngredients){
-      return res.status(400).render('crearElemento', {
+      return res.status(400).render('error', {
         error: 'Los ingredientes no pueden estar vacíos. Por favor, completa el formulario.',
         recipe: newData, 
       });
     }
     if (!newData.rcpDescription){
-      return res.status(400).render('crearElemento', {
+      return res.status(400).render('error', {
         error: 'La preparación de la receta no puede estar vacía. Por favor, completa el formulario.',
         recipe: newData, 
       });
