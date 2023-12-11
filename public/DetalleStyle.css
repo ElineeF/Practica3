@@ -419,14 +419,16 @@ hr.solid {
 /*cell "item2" = subitems*/
 .item2 {
     display: grid;
-    position: relative;
+     position: relative;
     grid-auto-rows: minmax(400px, 400px);
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: start;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: hidden; 
     padding: 1rem;
+    margin-right: 100px;
+    min-width: 300px;
+    width: 1000px;
 }
 
 .item2::-webkit-scrollbar {
@@ -443,13 +445,15 @@ hr.solid {
     border: 6px solid transparent;
     background-clip: content-box;
 }
-
+.item2{
+    display:block;
+}
 
 
 .subitems{
-    display: flex;
+     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column;  
     margin-bottom: 0;
     max-height: 70%;
     max-width: 60%;
@@ -459,20 +463,37 @@ hr.solid {
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    text-align: justify;
-    white-space: pre-line;
+     text-align: center;
+     white-space: pre-line;
     box-shadow:1px 7px 25px 4px rgba(5,34,41,0.18);
+    margin-top: 2%;
 }
 
 .subitems img{
     border-radius: 50%;
-    max-width: 20%;
-    max-height: 20%;
+    max-width: 35%;
+    max-height: 35%;
 }
 
 #userReview{
     font-family: firaFontLight;
-    
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.star-rating{
+    color:#F29090;
+    text-shadow: lightcoral 1px 0 10px;
+    -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: #2C2C2C;
+    font-size: large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#noReview{
+   color:#f4a2a2e3;
+   font-weight: 700;
+   font-size: xx-large;
 }
 
 #userName{

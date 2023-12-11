@@ -175,9 +175,25 @@
     </div>
    {{/reviews}}
    {{^reviews}}
-     <p>NO HAY RESEÑAS</p>
+     <h3 id="noReview">¡SÉ EL PRIMERO EN DAR TU OPINIÓN!</h3>
    {{/reviews}}
-   </div>  
+   </div> 
+   
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var labels = document.querySelectorAll('.rate label');
+
+      labels.forEach(function(label) {
+        label.addEventListener('click', function(event) {
+          // Prevenir el comportamiento por defecto del clic
+          event.preventDefault();
+
+          // Lógica para manejar la clasificación de estrellas
+          console.log('Calificación:', this.previousElementSibling.value);
+        });
+      });
+    });
+  </script>
 
 </body>
 
