@@ -1,15 +1,15 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="error" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/errorStyle.css">
-    <title>{{rcpName}}</title>
+  <meta charset="UTF-8">
+  <meta name="error" content="width=device-width, initial-scale=1.0">    
+  <link rel="stylesheet" href="/errorStyle.css">
+  <title>ERROR</title>
   <link rel="icon" type="image/x-icon" href="/Imagenes/logoNegro.ico">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
-  <link rel="stylesheet" href="/DetalleStyle.css">
+  <link rel="stylesheet" href="/errorStyle.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <title>Error</title>
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navegacion" id="shadow">
@@ -54,7 +54,7 @@
 
       <div id="errorContainer">
            <img src="/Imagenes/iconError.png" alt="Error Icon"/>
-           <div id="errorMessage">¡UPS! Se ha producido un error</div>
+           <div id="errorMessage">{{error}}</div>
 
            <div id="BtnPrincipal"><a href="/">Volver a página principal</a></div>
       </div>
