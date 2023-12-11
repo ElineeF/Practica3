@@ -18,26 +18,6 @@ router.get('/detalle/:id', (req, res) => {
 
 });
   
-// router.post('/detalle/:id', (req, res) => { 
-//   console.log('Datos recibidos');
-//   const newReview = crearReviewService.createReview(req.body);
-//   console.log('valor de nueva receta', newReview);
-//   console.log('Resena creada', newReview);
-
-//   let receta = crearReviewService.getRecipeById(req.params.id);
-
-//   if (!receta) {
-//     res.status(404).send('Receta no encontrada');
-//   }
-//   else{
-//     console.log('Esta es la receta: ', receta);
-
-//     let reviewId = crearReviewService.getId(newReview);
-//     //console.log('Este es el id: ',reviewId);
-//     receta.reviews[reviewId] = newReview;
-//     res.redirect(`/detalle/${req.params.id}`); 
-//   }  
-// });
 
 router.post('/detalle/:id', (req, res) => { 
   const newReview = crearReviewService.createReview(req.body);
@@ -55,8 +35,7 @@ else{
     reviews = crearReviewService.addReview(newReview, reviews);
     recipe.reviews = reviews;
     res.redirect(`/detalle/${req.params.id}`); 
-    console.log('Receta', recipe.rcpName);
-    console.log('Receta Review', recipe.reviews);
+  
  }
 });
 
