@@ -149,7 +149,7 @@ export function getRecipeById(recipeId) {
   return recipes[recipeId];
 }
 export function getAllRecipes() {
-    return Object.values(recipes);
+  return Object.values(recipes);
 }
 
 export function deleteRecipeById(recipeId) {
