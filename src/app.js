@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import mustacheExpress from 'mustache-express';
 import bodyParser from 'body-parser';
 import { __dirname } from './dirname.js';
@@ -22,6 +23,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //configura archivos estáticos en carpeta public
 app.use(express.static(__dirname + '/../public'));
+
+  app.get('/error', (req, res) => {
+   // En este ejemplo, 'mi-archivo.html' está dentro de la carpeta 'public'
+   res.sendFile(path.join(__dirname, '../views', 'error.html'));
+ }); 
 
 //rutas
 app.use('/', crearElementoRouter);

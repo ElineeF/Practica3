@@ -1,0 +1,174 @@
+body{
+    background-color: #07353f;
+}
+#errorContainer{
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+    background-color: #084552;
+    height: 100%;
+}
+#errorContainer div{
+    color:#ECE6CF;
+    margin-top:95px;
+    margin-left: 20px;
+}
+
+#errorContainer #errorMessage{
+    margin-top: 100px;
+}
+
+#errorContainer img{
+    height: 15%;
+    margin-top: 50px;
+}
+
+#BtnPrincipal{
+    background-color:#F29090;
+    height: 35px;
+    width: 180px;
+    padding: 5px;
+    margin: 30px;
+    background-color:#052229;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#BtnPrincipal:hover{
+    border: 2px solid #F29090;
+}
+
+#BtnPrincipal:hover a{
+    color:#F29090;
+}
+
+
+
+#BtnPrincipal a{
+    text-decoration: none;
+    color: #ECE6CF;
+}
+@font-face {
+    font-family: firaFont;
+    src: url(Fira/FiraSansCondensed-Medium.ttf);
+}
+
+@font-face {
+    font-family: firaFontBold;
+    src: url(Fira/FiraSansCondensed-Bold.ttf);
+}
+
+@font-face {
+    font-family: firaFontLight;
+    src: url(Fira/FiraSansCondensed-Light.ttf);
+}
+
+* {
+    scroll-behavior: smooth;
+    font-family: firaFont;
+}
+
+/*NavBar*/
+.navegacion {
+    background-color: #084552;
+}
+
+#shadow {
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.068), 0 0 40px rgba(0, 0, 0, 0.021) inset;
+}
+
+#shadow:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.logo img {
+    max-width: 50%;
+    min-width: 10px;
+    height: auto;
+}
+
+@media (max-width: 450px) {
+    .logo img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.customCollapseMenu {
+    justify-content: flex-end;
+}
+
+.customCollapseMenu ul {
+    margin-right: 1px !important;
+}
+
+.customCollapseMenu li {
+    margin-right: 10px;
+}
+
+#buttonCollapse {
+    background-color: #ECE6CF;
+}
+
+.headerElement {
+    margin-top: .7rem;
+}
+
+.headerElement a,
+i {
+    color: #ECE6CF;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.headerElement a.active,
+i:hover {
+    color: #55B47D;
+}
+
+#dropCustom {
+    background-color: #ECE6CF;
+    color: #ECE6CF;
+}
+
+#dropCustom a,
+hr {
+    color: #07353f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .3s;
+}
+
+#dropCustom a:hover {
+    color: #55B47D;
+    background-color: #ECE6CF;
+}
+
+
+.buttonCrear {
+    padding: 3%;
+    width: 220px;
+    border-radius: 28px;
+    transition: all .2s ease-in-out;
+}
+
+.buttonCrear a {
+    color: #ECE6CF;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .7px;
+    transition: .3s;
+}
+
+
+.buttonCrear:hover {
+    transform: scale(1.05);
+}

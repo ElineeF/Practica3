@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="error" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/errorStyle.css">
+    <title>{{rcpName}}</title>
+  <link rel="icon" type="image/x-icon" href="/Imagenes/logoNegro.ico">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"> </script>
+  <link rel="stylesheet" href="/DetalleStyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Error</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navegacion" id="shadow">
+        <div class="container-fluid">
+    
+          <a class="navbar-brand logo" href="/"><img src="/Imagenes/TastyGramAlargado.png"></a>
+    
+          <button id="buttonCollapse" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse customCollapseMenu" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
+              <li class="nav-item headerElement">
+                <a class="nav-link" href="#"><i class="bi bi-person-fill"></i></a>
+              </li>
+              <li class="nav-item dropdown headerElement">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-list"></i>
+                </a>
+                <ul id="dropCustom" class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Explorar</a></li>
+                  <li><a class="dropdown-item" href="#">Compartir</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Ajustes</a></li>
+                </ul>
+              </li>
+              <li class="nav-item buttonCrear">
+                <button class="btn btn-success" type="button">
+                  <a href="/crearElemento"><i class="bi bi-plus"></i>Crear Receta</a>
+                </button>
+              </li>
+            </ul>
+          </div>
+    
+        </div>
+      </nav>
+
+      <div id="errorContainer">
+           <img src="/Imagenes/iconError.png" alt="Error Icon"/>
+           <div id="errorMessage">¡UPS! Se ha producido un error</div>
+
+           <div id="BtnPrincipal"><a href="/">Volver a página principal</a></div>
+      </div>
+</body>
+</html>
