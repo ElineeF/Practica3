@@ -1,30 +1,44 @@
 import express from 'express';
 import * as crearElementoService from './crearElementoService.js';
 
-
-
 const router = express.Router();
-
 
 router.get('/', (req, res) => {
     // Lógica para renderizar la página principal con la lista de recetas
     res.render('index', { recipes: crearElementoService.getAllRecipes() });
-   // console.log(crearElementoService.getRecipeById(0));
-  });
+});
   
-  router.get('/crearElemento', (req, res) => {
+router.get('/crearElemento', (req, res) => {
     // Renderizar la página de creación de recetas
-    res.render('crearElemento');
+  res.render('crearElemento');
 });
   
 router.post('/crearElemento', (req, res) => {
-  let newRecipe = crearElementoService.createRecipe(req.body);
-  let recipes = crearElementoService.getAllRecipes;
-  recipes = crearElementoService.addRecipe(newRecipe);
-  console.log('ID NUEVO DE RECETA', recipes.length);
+  const newData = req.body;
 
-  console.log(newRecipe);
-  res.redirect(`/detalle/${newRecipe.id}`);
+  if (!newData.rcpName || !newData.rcpIngredients || !newData.rcpDescription) {
+    if(!newData.rcpName){
+      return res.status(400).render('error', {
+        error: 'El nombre no puede estar vacío. Por favor, completa el formulario.',
+        recipe: newData, 
+      });
+    }
+    if (!newData.rcpIngredients){
+      return res.status(400).render('error', {
+        error: 'Los ingredientes no pueden estar vacíos. Por favor, completa el formulario.',
+        recipe: newData, 
+      });
+    }
+    if (!newData.rcpDescription){
+      return res.status(400).render('error', {
+        error: 'La preparación de la receta no puede estar vacía. Por favor, completa el formulario.',
+        recipe: newData, 
+      });
+    }
+  } else {
+    const newRecipe = crearElementoService.createRecipe(newData);
+    res.redirect(`/detalle/${newRecipe.id}`);
+  }
 });
 
 router.get('/detalle/:id', (req, res) => {
@@ -84,10 +98,10 @@ router.post('/editar/:id', (req, res) => {
         recipe: newData, 
       });
     }
+  } else {
+    crearElementoService.updateRecipeById(targetRecipeId, newData);
+    res.redirect(`/detalle/${targetRecipeId}`);
   }
-
-  crearElementoService.updateRecipeById(targetRecipeId, newData);
-  res.redirect(`/detalle/${targetRecipeId}`);
 })
 
 export default router;
