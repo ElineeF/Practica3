@@ -24,9 +24,9 @@ let review1 ={
   userReview: 'Perfecta'
 }
 
-let recipes = [];
+let recipes ={
 
-  let recipe1 = {
+  0:{
     id: 0,
     rcpName: 'Crema de Zanahorias y Naranja',
     rcpImage: 'https://megustacomersano.com/wp-content/uploads/2022/01/crema-de-calabaza-con-naranja-y-jengibre-1-1000x1000.jpg',
@@ -42,7 +42,7 @@ let recipes = [];
     reviews:setReview(0,review1,reviews)
     
   },
-  recipe2 = {
+  1:{
     id: 1,
     rcpName: 'Pizza Hawaiana',
     rcpImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1981&q=80',
@@ -57,7 +57,7 @@ let recipes = [];
     dietRestrictions: "null",
 
   },
-  recipe3 ={
+  2:{
     id: 2,
     rcpName: 'Tacos Birria',
     rcpImage: 'https://hips.hearstapps.com/hmg-prod/images/delish-202104-birriatacos-033-1619806490.jpg?crop=1xw:0.8435280189423836xh;center,top&resize=1200:*',
@@ -74,7 +74,7 @@ let recipes = [];
     reviews:setReview(1,review3,reviews)
 
   },
-  recipe4 ={
+  3:{
     id: 3,
     rcpName: 'Cereales de mini croissants',
     rcpImage: 'https://badun.nestle.es/imgserver/v1/80/1290x742/7321fdc1578f-cereales-de-mini-croissants.jpg',
@@ -89,7 +89,7 @@ let recipes = [];
     dietRestrictions: "null",
     reviews:setReview(0,review4,reviews),
   },
-  recipe5 ={
+  4:{
     id: 4,
     rcpName: 'Red Velvet',
     rcpImage: 'https://www.gastrolabweb.com/u/fotografias/m/2021/2/11/f608x342-8503_38226_15.jpg',
@@ -103,7 +103,7 @@ let recipes = [];
     celiac: false,
     dietRestrictions: "null",
   },
-  recipe6 ={
+  5:{
     id: 5,
     rcpName: 'Coctel Sandía y albahaca Perrier',
     rcpImage: 'https://badun.nestle.es/imgserver/v1/80/1290x742/coctel-sandia-y-albahaca-perrier.jpg',
@@ -117,26 +117,16 @@ let recipes = [];
     celiac: true,
     dietRestrictions: "vegetariano",
   }
-  
-
-  
-  let nextId = 0;
-  recipes[0] = recipe1; 
-  recipes[1] = recipe2; 
-  recipes[2] = recipe3;
-  recipes[3] = recipe4;
-  recipes[4] = recipe5;
-  recipes[5] = recipe6;
+}
 
 
-
-//let nextId = Object.keys(recipes).length;
+let nextId = Object.keys(recipes).length;
 
 export function createRecipe(recipeData) {
   // Lógica para validar y guardar la nueva receta
-;
+  const newId = nextId + 1;
   let newRecipe = {
-    id: recipes.length,
+    id: newId,
     rcpName: recipeData.rcpName,
     rcpImage: recipeData.rcpImage,
     rcpIngredients: recipeData.rcpIngredients.split('\n').map(line => line.trim()),
@@ -149,42 +139,29 @@ export function createRecipe(recipeData) {
     celiac: recipeData.celiac === 'on',
     dietRestrictions: recipeData.dietRestrictions,
     reviews:[]
-  }
+  };
 
-  //recipes.set(newRecipe.id, newRecipe);
+  recipes[newId] = newRecipe;
   return newRecipe;
 }
-
-export function addRecipe(recipe){
-  
-  recipe.id = recipes.length;
-  recipes[recipe.id] = recipe;
-  return recipes;
-}
-
-export function setRecipe(recipeId, updatedRecipe, recipes){
-  recipes[recipeId] = updatedRecipe;
-  return recipes;
-}
-
 
 export function getRecipeById(recipeId) {
   return recipes[recipeId];
 }
-
-
 export function getAllRecipes() {
-    return recipes;
+    return Object.values(recipes);
 }
 
 export function deleteRecipeById(recipeId) {
-  recipes.splice(recipeId,1);
+  delete recipes[recipeId];
 }
 
 export function updateRecipeById(targetRecipeId, newData) {
   recipes[targetRecipeId] = newData;
 }
 
+
+//REVIEWS 
 
 let nextReview = reviews.length + 1;
 
