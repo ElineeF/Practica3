@@ -152,6 +152,15 @@ export function getAllRecipes() {
   return Object.values(recipes);
 }
 
+export function getRecipes(from, to) {
+  let values = [...recipes.values()];
+  if (from !== undefined) {
+      return values.slice(from, to);
+  } else {
+      return values;
+  }
+}
+
 export function deleteRecipeById(recipeId) {
   delete recipes[recipeId];
 }

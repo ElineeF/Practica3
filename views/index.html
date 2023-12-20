@@ -56,7 +56,7 @@
 
   <div class="general">
 
-    <div class="container">
+    <div class="container" id="recipesContainer">
 
       {{#recipes}}
       <div class="recetas">
@@ -67,6 +67,7 @@
       </div>
 
       {{/recipes}}
+      <button onclick="loadAJAX()">Cargar AJAX</button>
     </div>
 
     {{^recipes}}
