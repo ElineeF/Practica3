@@ -1,16 +1,38 @@
 import express from 'express';
 import * as crearElementoService from './crearElementoService.js';
-
+import { getRecipes } from './crearElementoService.js';
 const router = express.Router();
 
+// router.get('/', (req, res) => {
+//     // Lógica para renderizar la página principal con la lista de recetas
+//     res.render('index', { recipes: crearElementoService.getAllRecipes() });
+// });
+
 router.get('/', (req, res) => {
-    // Lógica para renderizar la página principal con la lista de recetas
-    res.render('index', { recipes: crearElementoService.getAllRecipes() });
+
+  const recipes = getRecipes(0,3);
+
+  res.render('index', {
+    recipes: recipes
+  });
 });
   
 router.get('/crearElemento', (req, res) => {
     // Renderizar la página de creación de recetas
   res.render('crearElemento');
+});
+
+
+router.get('/recipes', (req, res) => {
+
+  const from = parseInt(req.query.from);
+  const to = parseInt(req.query.to);
+
+  const recipes = getRecipes(from,to); //const superheroes = getSuperheroes(from,to);
+
+  res.render('recipes', {
+      recipes: recipes
+  });
 });
   
 router.post('/crearElemento', (req, res) => {

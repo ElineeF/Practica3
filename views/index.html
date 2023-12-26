@@ -10,6 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="app.js"></script>
 </head>
 
 <body>
@@ -56,10 +57,10 @@
 
   <div class="general">
 
-    <div class="container">
+    <div class="container" id="recipesList">
 
       {{#recipes}}
-      <div class="recetas">
+      <div class="recetas" id="recipesElement">
         <div class="imgRecetas"><a href="/detalle/{{id}}"><img src="{{rcpImage}}" alt="{{rcpName}}" /></a></div>
         <div class="textoRecetas">
           <h2>{{rcpName}}</h2>
@@ -75,8 +76,9 @@
     {{/recipes}}
 
   </div>
-
-
+  <div id="LoadContainer">
+  <button onclick='loadMore()' id="LoadButton"> <p>Load more</p></button>
+</div>
 </body>
 
 </html>

@@ -182,3 +182,24 @@ html, body{
 .textoRecetas h2{
     font-size: 1.5rem;
 }
+
+/*LoadMore button*/
+#LoadButton p:hover{
+    color: #F29090;
+}
+#LoadButton p{
+    color: #ECE6CF;
+    height: 20px;
+}
+#LoadButton{
+    padding-top: 10px;
+    background-color: #07353f;
+    text-align: center;
+}
+#LoadContainer{
+    background-color: #084857;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
