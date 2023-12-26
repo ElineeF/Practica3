@@ -7,19 +7,7 @@ router.get('/', (req, res) => {
     // Lógica para renderizar la página principal con la lista de recetas
     res.render('index', { recipes: crearElementoService.getAllRecipes() });
 });
-//Superheroes
-router.get('/recipes', (req, res) => {
-
-  const from = parseInt(req.query.from);
-  const to = parseInt(req.query.to);
-
-  const recipes = getRecipes(from,to);
-
-  res.render('recipesContainer', { //revisar si la path tiene que coincidir con el id del container o la variable
-    recipes: recipes
-  });
-});
-//Superheroes  
+  
 router.get('/crearElemento', (req, res) => {
     // Renderizar la página de creación de recetas
   res.render('crearElemento');
