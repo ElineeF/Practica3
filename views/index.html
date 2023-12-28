@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <script src="app.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -28,9 +29,28 @@
 
       <div class="collapse navbar-collapse customCollapseMenu" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-row">
-          <li class="nav-item headerElement">
+           <li class="nav-item headerElement">
             <a class="nav-link" href="#"><i class="bi bi-person-fill"></i></a>
+          </li> 
+          <label for="tgB">
+          <input type="checkbox" id="tgB">
+          <li class="nav-item headerElement">
+            <a class="nav-link" href="#"><i class="bi bi-bookmark-star favButton"> </i></a> 
+            <div id="favoritesContainer" class="hidden">
+              <h2 id="FavTitle">LISTA DE RECETAS FAVORITAS</h2>
+            {{#favorites}}
+              <div class="favorite">
+                <div class="imgFavorites"><a href="/detalle/{{id}}"><img src="{{rcpImage}}" alt="{{rcpName}}" /></a></div> 
+                <div class="textoFavoritos">{{rcpName}}</div>
+              </div>
+            {{/favorites}}
+            {{^favorites}}
+              Aun no hay favoritos
+            {{/favorites}}
+          </div>
+          
           </li>
+        </label>
           <li class="nav-item dropdown headerElement">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-list"></i>
@@ -54,13 +74,14 @@
 
     </div>
   </nav>
-
+ <div id="all">
   <div class="general">
 
     <div class="container" id="recipesList">
 
       {{#recipes}}
-      <div class="recetas" id="recipesElement">
+      <div class="recetas">
+        <input type="checkbox" id="CheckFav">
         <div class="imgRecetas"><a href="/detalle/{{id}}"><img src="{{rcpImage}}" alt="{{rcpName}}" /></a></div>
         <div class="textoRecetas">
           <h2>{{rcpName}}</h2>
@@ -78,6 +99,7 @@
   </div>
   <div id="LoadContainer">
   <button onclick='loadMore()' id="LoadButton"> <p>Load more</p></button>
+</div>
 </div>
 </body>
 

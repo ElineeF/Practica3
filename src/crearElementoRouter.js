@@ -1,6 +1,7 @@
 import express from 'express';
 import * as crearElementoService from './crearElementoService.js';
 import { getRecipes } from './crearElementoService.js';
+import { getFavorites } from './crearElementoService.js';
 const router = express.Router();
 
 // router.get('/', (req, res) => {
@@ -8,14 +9,32 @@ const router = express.Router();
 //     res.render('index', { recipes: crearElementoService.getAllRecipes() });
 // });
 
-router.get('/', (req, res) => {
+// router.get('/', (req, res) => {
 
-  const recipes = getRecipes(0,3);
+//   const favorites = getFavorites(0,4);
+
+//   res.render('index', {
+//     favorites: favorites
+//   });
+
+//   const recipes = getRecipes(0,3);
+
+//   res.render('index', {
+//     recipes: recipes
+//   });
+// });
+
+router.get('/', (req, res) => {
+  const favorites = getFavorites();
+  const recipes = getRecipes(0, 3);
 
   res.render('index', {
+    favorites: favorites,
     recipes: recipes
   });
 });
+
+
   
 router.get('/crearElemento', (req, res) => {
     // Renderizar la página de creación de recetas
@@ -32,6 +51,18 @@ router.get('/recipes', (req, res) => {
 
   res.render('recipes', {
       recipes: recipes
+  });
+});
+
+router.get('/favorites', (req, res) => {
+
+  const from = parseInt(req.query.from);
+  const to = parseInt(req.query.to);
+
+  const favorites = getFavorites(from,to); 
+
+  res.render('favorites', {
+      favorites: favorites
   });
 });
   

@@ -112,6 +112,18 @@ html, body{
 .buttonCrear:hover {
     transform: scale(1.05);
 }
+/* .favButton:visited +  #favoritesContainer{
+    color:black;
+    background-color: wheat;
+} */
+
+
+ .favButton:checked {
+    color: blue;
+} 
+/* .favButton:hover{
+    color: black;
+} */
 
 /*Página Principal con las Recetas*/
 
@@ -151,6 +163,12 @@ html, body{
 
 .recetas:hover {
     transform: translateY(-10px);
+}
+/*boton estrella*/
+#CheckFav{
+  position: relative;
+  top:5px;
+  left: 95%;
 }
 
 .recetas img {
@@ -203,3 +221,137 @@ html, body{
     align-items: center;
     height: 100px;
 }
+
+/*Favorites*/
+
+#favoritesContainer::-webkit-scrollbar{
+  background-color: #084552;
+}
+
+#favoritesContainer::-webkit-scrollbar-track{
+    background-color:#084857;
+}
+  
+#favoritesContainer::-webkit-scrollbar-thumb{
+    background-color:#F29090;
+}
+
+#favoritesContainer{
+    top:80px;
+    width: 300px;
+    height: 500px;
+    overflow-y: scroll;
+    right: 0;
+    padding: 10px;
+    border: 3px solid #55B47D;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease;
+    background-color: #084857;
+    color: #ECE6CF;
+}
+
+#tgB:checked ~  #favoritesContainer{
+    visibility: visible;
+    opacity: 1;
+    color:purple;
+    background-color: #084857;
+}
+
+
+label #tgB:checked ~ li #favoritesContainer{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+
+label #tgB:checked ~ li i{
+    color: #55B47D;
+    cursor: pointer;
+}
+
+label #tgB:hover ~ li i{
+    color: #55B47D;
+    cursor: pointer;
+}
+
+label #tgB:hover{
+    cursor: pointer;
+}
+
+label #tgB{
+    z-index: 1;
+    position: fixed;
+    top: 35px;
+    right: 327px;
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+.favorite {
+    margin-top: 10px;
+    width: 200px;
+    margin-left: 15%;
+    border-radius: 1rem;
+    position: relative;
+    transition: transform 250ms;
+    box-shadow: 0 0 20px 0 #07353f;
+    overflow: hidden;
+}
+
+
+.imgFavorites {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    text-align: center;
+    border-radius: 1rem;
+}
+.imgFavorites:hover{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    text-align: center;
+    border-radius: 1rem;
+    filter: blur();
+}
+
+.textoFavoritos {
+    padding: 0.8rem;
+    text-align: center;
+    background-color: #55B47D;
+    color: #ECE6CF !important;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 0rem 0rem 1rem 1rem;
+    font-size: 100;
+}
+
+
+#FavTitle{
+    text-align: center;
+}
+
+.textoFavoritos h2{
+    font-size: 1.5rem;
+}
+
+.favorite img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+
+
+
+/* #tgB:hover ~ li label{
+    color: white;
+    background-color: green;
+} */
