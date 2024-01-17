@@ -264,11 +264,8 @@ createRecipe({id: 6,
 }
 
  export function loadFavorites(){
-   addFavorite(getRecipeById(0));
-   addFavorite(getRecipeById(1));
-   addFavorite(getRecipeById(2));
-   addFavorite(getRecipeById(3));
-   addFavorite(getRecipeById(5));
+    addFavorite(getRecipeById(0));
+    addFavorite(getRecipeById(1));
 
  }
 

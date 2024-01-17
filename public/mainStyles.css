@@ -3,6 +3,20 @@
     src: url(Fira/FiraSansCondensed-Medium.ttf);
 }
 
+@media (min-width: 500px) and (max-width : 991px) {
+    label #tgB{
+        display: flex;
+        justify-content:left;
+        position: absolute;
+        left: 15px;
+        margin-top: 88px;
+        text-align: left;
+     }
+
+}
+
+
+
 * {
     scroll-behavior: smooth;
     font-family: firaFont;
@@ -112,18 +126,8 @@ html, body{
 .buttonCrear:hover {
     transform: scale(1.05);
 }
-/* .favButton:visited +  #favoritesContainer{
-    color:black;
-    background-color: wheat;
-} */
 
 
- .favButton:checked {
-    color: blue;
-} 
-/* .favButton:hover{
-    color: black;
-} */
 
 /*Página Principal con las Recetas*/
 
@@ -278,7 +282,7 @@ html, body{
 
 #tgB:checked ~  #favoritesContainer{
     visibility: visible;
-    opacity: 1;
+    opacity: 0;
     color:purple;
     background-color: #084857;
 }
@@ -305,13 +309,58 @@ label #tgB:hover{
 }
 
 label #tgB{
-    z-index: 1;
+    position: fixed;
+    top: 20px;
+    right: 328px;
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+
+/* 
+@media (max-width: 450px) {
+    label #tgB {
+        z-index: 0;
     position: fixed;
     top: 35px;
     right: 327px;
     transform: scale(1.5);
-    opacity: 0;
+    opacity: 1;
+    top: 90px;
+    right: 187px;
+
+    }
 }
+
+@media (max-width: 850px) {
+    label #tgB {
+    z-index: 1;
+    position: relative;
+    top: 35px;
+    right: 327px;
+    transform: scale(1.5);
+    opacity: 1;
+    top: 36px;
+    right: 2px;
+    }
+}
+
+@media (min-width: 850px) {
+    label #tgB {
+    z-index: 0;
+    position: relative;
+    top: 35px;
+    right: 327px;
+    transform: scale(1.5);
+    opacity: 1;
+    top: 36px;
+    right: 2px;
+    }
+} */
+
+/*
+ top: 90px;
+    right: 587px;*/
 
 .favorite {
     margin-top: 10px;
