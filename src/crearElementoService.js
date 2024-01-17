@@ -1,30 +1,31 @@
 
 
-let reviews = [];
+let reviews = [
 
-let review1 ={
-  userName: 'Maria Jose',
-  rate:5,
-  userReview: 'Me ha encantado'
-},
+  1 ={
+    userName: 'Maria Jose',
+    rate:5,
+    userReview: 'Me ha encantado'
+  },
 
- review2 ={
-  userName: 'Sabrina Carpenter',
-  rate:4,
-  userReview: 'Delicioso, lo único es que quita tiempo'
-}
+  2 ={
+    userName: 'Sabrina Carpenter',
+    rate:4,
+    userReview: 'Delicioso, lo único es que quita tiempo'
+  }
 
-, review3 ={
-  userName: 'Marcos Ferrer',
-  rate:5,
-  userReview: 'Me divertí preparandola'
-}
+  , 3 ={
+    userName: 'Marcos Ferrer',
+    rate:5,
+    userReview: 'Me divertí preparandola'
+  }
 
-, review4 ={
-  userName: 'Elinee Freites',
-  rate:5,
-  userReview: 'Perfecta'
-}
+  , 4 ={
+    userName: 'Elinee Freites',
+    rate:5,
+    userReview: 'Perfecta'
+  }
+];
 
 let recipes ={}
 let numFav;
