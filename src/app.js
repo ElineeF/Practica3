@@ -18,19 +18,18 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/../views');
 
 //Middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-app.use(bodyParser.urlencoded({extended: true}));
+// Configura archivos estáticos en carpeta public
+app.use(express.static(path.join(__dirname, '/../public')));
 
-//configura archivos estáticos en carpeta public
-app.use(express.static(__dirname + '/../public'));
-
-  app.get('/error', (req, res) => {
-   // En este ejemplo, 'mi-archivo.html' está dentro de la carpeta 'public'
-   res.sendFile(path.join(__dirname, '../views', 'error.html'));
- }); 
-
-//rutas
+// Rutas
+app.get('/error', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../views', 'error.html'));
+});
 app.use('/', crearElementoRouter);
 app.use('/', crearReviewRouter);
 
-app.listen(3001, () => console.log('Listening on port 3000!'))
+// Iniciar servidor
+app.listen(3001, () => console.log('Listening on port 3001!'))

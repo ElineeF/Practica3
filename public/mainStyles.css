@@ -201,6 +201,29 @@ html, body{
     font-size: 1.5rem;
 }
 
+.textoRecetas label {
+    transform: translateY(-50%);
+}
+
+.star-checkbox {
+    display: none;
+}
+
+.star-checkbox + label {
+    position: absolute;
+    bottom: 10px; 
+    right: 10px; 
+    cursor: pointer;
+}
+  
+.star-checkbox + label i {
+    color: #c96b6b; 
+    cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+}
+  
+.star-checkbox:checked + label i {
+    color: gold; 
+}
 /*LoadMore button*/
 #LoadButton p:hover{
     color: #F29090;

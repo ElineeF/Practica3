@@ -2,25 +2,25 @@
 
 let reviews = [
 
-  1 ={
+  {
     userName: 'Maria Jose',
     rate:5,
     userReview: 'Me ha encantado'
   },
 
-  2 ={
+  {
     userName: 'Sabrina Carpenter',
     rate:4,
     userReview: 'Delicioso, lo único es que quita tiempo'
-  }
-
-  , 3 ={
+  },
+  
+  {
     userName: 'Marcos Ferrer',
     rate:5,
     userReview: 'Me divertí preparandola'
-  }
-
-  , 4 ={
+  }, 
+  
+  {
     userName: 'Elinee Freites',
     rate:5,
     userReview: 'Perfecta'
@@ -28,7 +28,6 @@ let reviews = [
 ];
 
 let recipes ={}
-let numFav;
 
 let favorites = [];
 
@@ -58,15 +57,6 @@ export function createRecipe(recipeData) {
   nextId = nextId + 1;
   return newRecipe;
 }
-
-// function findObjectById(objects, id) {
-//   for (let key in objects) {
-//       if (objects[key].id === id) {
-//           return objects[key];
-//       }
-//   }
-//   return null; // Devuelve null si no se encuentra ningún objeto con ese id
-// }
 
 function findObjectById(object, id) {
   for (const key in object) {
@@ -144,48 +134,32 @@ export function getReviewById(reviewId, review){
 
 
 //favorites
-export function addFavorite(RecipeData){
-  numFav = favorites.length;
-  let favorite = {
-    id: RecipeData.id,
-    rcpName: RecipeData.rcpName,
-    rcpImage: RecipeData.rcpImage
+export function addFavorite(recipeData) {
+  const favorite = {
+    id: recipeData.id,
+    rcpName: recipeData.rcpName,
+    rcpImage: recipeData.rcpImage
   };
-  RecipeData.favorite = true;
-  favorites[numFav] = favorite;
-  
-
+  recipeData.isFavorite = true;
+  recipes[recipeData.id] = recipeData;
+  favorites.push(favorite);
 }
 
-export function getFavorites(){
-  let values = Object.values(favorites);
-  if (values !== undefined) {
-    return values.slice(0, favorites.length);
-} else {
-    return values;
-}
+
+export function getFavorites() {
+  return favorites.slice();
 }
 
-export function deleteFavorite(idRecipe){
-  let id = getFavoriteId(idRecipe);
-  delete favorites[id];
+
+export function deleteFavorite(idRecipe) {
+  delete favorites[idRecipe];
 }
 
-export function getFavoriteId(idRecipe){
-   let found = false;
-   let indice;
-   let recipe = getRecipeById(idRecipe);
-    while((i<favorites.length) && (!found)){
-     if (favorites[i]===recipe){
-      found = true;
-      indice = i;
-     }
-     i++;
-   }
-   if (found && (recipe !== null)){
-    return indice;
-   }
+
+export function getFavoriteId(idRecipe) {
+  return favorites.findIndex(fav => fav.id === idRecipe);
 }
+
 
 //Cargar
 
@@ -202,7 +176,7 @@ export function loadSampleData() {
     fish: false,
     celiac: false,
     dietRestrictions: 'Vegetariano',
-    reviews:setReview(0,review1,reviews)}),
+    reviews:setReview(0,reviews[0],reviews)}),
 
    createRecipe({id: 1,
      rcpName: 'Pizza Hawaiana',
@@ -229,8 +203,8 @@ export function loadSampleData() {
    fish: false,
    celiac: false,
    dietRestrictions: "null",
-   reviews:setReview(0,review2,reviews),
-   reviews:setReview(1,review3,reviews),
+   reviews:setReview(0,reviews[1],reviews),
+   reviews:setReview(1,reviews[2],reviews),
 
  });
  createRecipe({id: 3,
@@ -245,7 +219,7 @@ export function loadSampleData() {
     fish: false,
     celiac: false,
     dietRestrictions: "null",
-    reviews:setReview(0,review4,reviews),
+    reviews:setReview(0,reviews[3],reviews),
  });
  createRecipe({id: 4,
     rcpName: 'Red Velvet',
@@ -297,9 +271,6 @@ createRecipe({id: 6,
    addFavorite(getRecipeById(5));
 
  }
-
-
-
 
 loadSampleData();
 loadFavorites();

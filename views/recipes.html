@@ -1,9 +1,10 @@
 {{#recipes}}
-      <div class="recetas" id="recipesElement">
+      <div class="recetas">
         <div class="imgRecetas"><a href="/detalle/{{id}}"><img src="{{rcpImage}}" alt="{{rcpName}}" /></a></div>
         <div class="textoRecetas">
-          <h2>{{rcpName}}</h2>
+            <h2>{{rcpName}}</h2>
+            <input type="checkbox" id="CheckFav{{id}}" class="star-checkbox" data-recipe-id="{{id}}" {{#isFavorite}}checked{{/isFavorite}}>
+            <label for="CheckFav{{id}}"><i class="far fa-star"></i></label>
         </div>
       </div>
-
 {{/recipes}}
